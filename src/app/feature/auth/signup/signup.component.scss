@@ -1,0 +1,58 @@
+.bg-image {
+  height: 86vh;
+  width: 100%;
+  background-image: url("/assets/images/BG-signup.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative; /* To position the text inside it */
+}
+
+.welcome-div {
+  position: absolute;
+  top: 18%;
+  left: 49%;
+}
+
+.welcome-text {
+  transform: translate(-50%, -50%);
+  font-size: 39px;
+  color: #495057;
+  font-weight: bold;
+  font-family: system-ui;
+}
+
+.MakerSpace-text {
+  white-space: nowrap;
+  transform: translate(-50%, -50%);
+  font-size: 26px;
+  color: #49505A;
+  font-weight: bold;
+  font-family: system-ui;
+  position: absolute;
+  left: 83px;
+  top: 82px;
+}
+
+::ng-deep .p-inputtext {
+  height: 40px;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.span-signin {
+  position: absolute;
+  top: -149px;
+  right: 11px;
+  font-size: 25px;
+  color: white;
+  width: 76px;
+}
+.signup-span{
+  border: 1px solid #ff6000;
+  padding: 14px 82px;
+  background: #ff6000;
+  border-radius: 5px;
+  color: white;
+  margin: 27px 74px;
+}

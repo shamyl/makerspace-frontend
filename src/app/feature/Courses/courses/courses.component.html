@@ -1,0 +1,50 @@
+<div class="row" style="margin-bottom: 20px;">
+  <div class="col-12">
+    <!-- Back Arrow Icon with Router Link -->
+    <a [routerLink]="['/dashboard']" style="text-decoration: none;">
+      <i class="pi pi-arrow-left" style="font-size: 24px; margin-right: 8px;"></i>
+      <span style="font-size: 18px; font-weight: bold;">Back to Dashboard</span>
+    </a>
+  </div>
+</div>
+
+  <div class="row" style="padding: 13px 22px">
+    <div class="col-12 d-flex align-items-center justify-content-end">
+      <button pButton class="btn-primary" (click)="addEditCourses()">Add Course</button>
+    </div>
+  </div>
+
+
+<p-table #dt [columns]="headersTable" [value]="courseList">
+
+  <!-- Table Header -->
+  <ng-template pTemplate="header" let-columns>
+    <tr>
+      <th *ngFor="let col of columns">
+        {{col.header}}
+      </th>
+    </tr>
+  </ng-template>
+
+  <!-- Table Body -->
+  <ng-template pTemplate="body" let-rowData let-columns="columns">
+    <tr>
+      <td *ngFor="let col of columns">
+        <ng-container *ngIf="col.field === 'date'">
+          {{rowData[col.field] | date: 'mediumDate'}}
+        </ng-container>
+        <ng-container>
+          {{rowData[col.field]}}
+        </ng-container>
+        <ng-container *ngIf="col.field === 'action'">
+          <span>
+            <span (click)="addEditCourses(rowData)"><i class="pi pi-user-edit"></i></span>
+            <span (click)="deleteUserbyid(rowData.id)"><i class="pi pi-user-minus"></i></span>
+            <span (click)="getCoursebyUserId(rowData.id)"><i class="pi pi-list"></i></span>
+          </span>
+        </ng-container>
+        <!-- Add more conditions based on your data structure -->
+      </td>
+    </tr>
+  </ng-template>
+</p-table>

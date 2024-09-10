@@ -1,0 +1,72 @@
+<h2 mat-dialog-title>{{ course ? 'Edit Course' : 'Add Course' }}</h2>
+
+<div class="row" style="padding: 47px 55px">
+    <div class="col-lg-6 col-sm-12">
+        <div class="selection-option">
+            <span class="span-inp">Course Name *</span>
+            <mat-form-field appearance="outline" class="custom-mat-form-field custom-inp">
+                <input [(ngModel)]="course.name" matInput placeholder="Enter Course Name *" type="text">
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="col-lg-6 col-sm-12">
+        <div class="selection-option">
+            <span class="span-inp">Course Venue *</span>
+            <mat-form-field appearance="outline" class="custom-mat-form-field custom-inp">
+                <input [(ngModel)]="course.courseVenue" matInput placeholder="Enter Course Venue *" type="text">
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="col-lg-6 col-sm-12">
+        <div class="selection-option">
+            <span class="span-inp">Start Date *</span>
+            <mat-form-field appearance="outline" class="custom-mat-form-field custom-inp">
+                <input [(ngModel)]="course.startDateTime" matInput placeholder="Start Date *" type="date">
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="col-lg-6 col-sm-12">
+        <div class="selection-option">
+            <span class="span-inp">End Date *</span>
+            <mat-form-field appearance="outline" class="custom-mat-form-field custom-inp">
+                <input [(ngModel)]="course.endDateTime" matInput placeholder="End Date *" type="date">
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="col-lg-6 col-sm-12">
+        <div class="selection-option">
+            <span class="span-inp">Time Period *</span>
+            <mat-form-field appearance="outline" class="custom-mat-form-field">
+                <mat-label>Select Time Period</mat-label>
+                <mat-select [(ngModel)]="course.timePeriod" placeholder="Select Time Period">
+                    <mat-option *ngFor="let time of timePeriodList" [value]="time">{{time}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="col-lg-6 col-sm-12">
+        <div class="selection-option">
+            <span class="span-inp">Status *</span>
+            <mat-form-field appearance="outline" class="custom-mat-form-field">
+                <mat-label>Select status</mat-label>
+                <mat-select [(ngModel)]="course.status" placeholder="Select Time Period">
+                    <mat-option *ngFor="let status of status" [value]="status">{{status}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="col-lg-6 col-sm-12">
+        <div class="selection-option">
+            <span class="span-inp">Course Description</span>
+            <mat-form-field appearance="outline" class="custom-mat-form-field custom-inp">
+                <textarea [(ngModel)]="course.description" matInput placeholder="Enter Course Description"></textarea>
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="col-lg-12 col-sm-12">
+        <div class="d-flex justify-content-end">
+            <button mat-raised-button color="primary" (click)="save()">Submit</button>
+            <button mat-raised-button color="warn" (click)="resetForm()">Reset</button>
+        </div>
+    </div>
+</div>

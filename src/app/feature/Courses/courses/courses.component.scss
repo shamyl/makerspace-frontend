@@ -1,0 +1,25 @@
+@import "primeicons/primeicons.css";
+@import 'bootstrap/scss/bootstrap';
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+.p-datatable {
+  width: 100%;
+}
+//::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline-thick {
+//  color: rgb(88 91 98);
+//}
+//
+//::ng-deep mat-form-field{
+//  display: block !Important;
+//}
+//::ng-deep .mat-form-field-wrapper{
+//    border: 1px solid grey;
+//    padding: 0px 4px;
+//    margin: 7px 1px;
+//  border-radius: 5px;
+//  }
+//::ng-deep input.mat-input-element {
+//  position: absolute;
+//  top: -6px;
+//}

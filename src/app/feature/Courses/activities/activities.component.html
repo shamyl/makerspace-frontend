@@ -1,0 +1,7 @@
+<h2>Activities for {{ courseName }}</h2>
+<div *ngFor="let activity of activities">
+    <h4>{{ activity.name }}</h4>
+    <div class="iframe-container">
+        <iframe [src]="activity.toolUrl "></iframe>
+    </div>
+</div>

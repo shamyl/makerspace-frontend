@@ -1,0 +1,20 @@
+<div class="membership-container">
+    <div class="membership-header">
+        <h2>Membership Options</h2>
+        <p>Select a plan that suits your needs:</p>
+    </div>
+
+    <div class="membership-types">
+        <div class="membership-type" *ngFor="let membership of memberships">
+            <h3>{{ membership.type }}</h3>
+            <p-card title="{{ membership.name }}" styleClass="membership-card">
+                <div class="card-content">
+                    <p>{{ membership.description }}</p>
+                    <ul>
+                        <li *ngFor="let benefit of membership.benefits">{{ benefit }}</li>
+                    </ul>
+                </div>
+            </p-card>
+        </div>
+    </div>
+</div>

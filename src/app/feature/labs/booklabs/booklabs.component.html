@@ -1,0 +1,25 @@
+<div class="container">
+    <h2>Book a Lab</h2>
+
+    <p>Choose a lab:</p>
+    <p-selectButton [(ngModel)]="selectedLab" [options]="labs"></p-selectButton>
+
+    <p-button label="Book" (click)="bookLab()" icon="pi pi-check"></p-button>
+
+    <p-table [value]="bookings">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Lab</th>
+                <th>Date & Time</th>
+                <th>Duration</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-booking>
+            <tr>
+                <td>{{ booking.lab }}</td>
+                <td>{{ booking.date | date:'short' }}</td>
+                <td>{{ booking.duration }} minutes</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
