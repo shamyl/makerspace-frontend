@@ -3,20 +3,23 @@
     <!-- Back Arrow Icon with Router Link -->
     <a [routerLink]="['/dashboard']" style="text-decoration: none;">
       <i class="pi pi-arrow-left" style="font-size: 24px; margin-right: 8px;"></i>
-      <span style="font-size: 18px; font-weight: bold;">Back to Dashboard</span>
+      <span style="font-size: 18px; font-weight: bold;">Courses</span>
     </a>
   </div>
 </div>
 
-  <div class="row" style="padding: 13px 22px">
-    <div class="col-12 d-flex align-items-center justify-content-end">
-      <button pButton class="btn-primary" (click)="addEditCourses()">Add Course</button>
+<div class="row" style="padding: 13px 22px">
+  <div class="col-6 d-flex align-items-center justify-content-start">
+    <button pButton class="btn-primary" style="border-radius: 5px" (click)="addEditCourses()">Add Course</button>
+  </div>
+  <div class="col-6 d-flex align-items-center justify-content-end">
+    <div style="max-width: 400px;">
+      <input [(ngModel)]="searchTerm" (ngModelChange)="filterCourses()" placeholder="Search...">
     </div>
   </div>
+</div>
 
-
-<p-table #dt [columns]="headersTable" [value]="courseList">
-
+<p-table #dt [columns]="headersTable" [value]="filteredCourseList">
   <!-- Table Header -->
   <ng-template pTemplate="header" let-columns>
     <tr>

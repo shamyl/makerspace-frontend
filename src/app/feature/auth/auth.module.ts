@@ -8,7 +8,7 @@ import { SignupComponent } from './signup/signup.component';
 import {DashboardComponent} from '../dashboard/dashboard/dashboard.component';
 import { ProfileComponent } from './Profile/profile/profile.component';
 import {AvatarModule} from 'primeng/avatar';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ButtonModule} from 'primeng/button';
 import {CoursesComponent} from '../Courses/courses/courses.component';
 import { TableModule } from 'primeng/table';
@@ -72,15 +72,16 @@ const routes: Routes = [
     SignupComponent,
     ProfileComponent
   ],
-  imports: [
-    CommonModule,
-    RouterModule.forChild(routes),
-    InputTextModule,
-    AvatarModule,
-    FormsModule,
-    ButtonModule,
-      TableModule,
-      CalendarModule
-  ]
+    imports: [
+        CommonModule,
+        RouterModule.forChild(routes),
+        InputTextModule,
+        AvatarModule,
+        FormsModule,
+        ButtonModule,
+        TableModule,
+        CalendarModule,
+        ReactiveFormsModule
+    ]
 })
 export class AuthModule { }

@@ -2,25 +2,59 @@
   <div class="col-12">
     <div class="bg-image">
       <div class="welcome-div">
-        <!--        <span class="welcome-text">Welcome</span><br>-->
-        <!--        <span class="MakerSpace-text">Sign In To Makerspace</span>-->
-        <div class="row" style="margin: 225px -204px">
-          <div class="col-lg-12" style="margin: 0 0 43px 0">
-            <input type="text" pInputText/>
-          </div>
-          <div class="col-lg-12">
-            <input type="text" pInputText/>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-12">
-            <span class="span-signin" routerLink="/dashboard"  >Sign In</span>
+        <!-- Optional Welcome Text -->
+        <!-- <span class="welcome-text">Welcome</span><br>-->
+        <!-- <span class="MakerSpace-text">Sign In To Makerspace</span> -->
+
+        <!-- Form begins -->
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <div class="row" style="margin: 225px -204px">
+            <!-- Username Input Field -->
+            <div class="col-lg-12" style="margin: 0 0 43px 0">
+              <input
+                type="text"
+                pInputText
+                formControlName="username"
+                class="form-control"
+                placeholder="Username"
+              />
+              <!-- Validation error for username -->
+              <div *ngIf="submitted && f.username.errors" class="text-danger">
+                Username is required
+              </div>
+            </div>
+
+            <!-- Password Input Field -->
+            <div class="col-lg-12">
+              <input
+                type="password"
+                pInputText
+                formControlName="password"
+                class="form-control"
+                placeholder="Password"
+              />
+              <!-- Validation error for password -->
+              <div *ngIf="submitted && f.password.errors" class="text-danger">
+                Password is required
+              </div>
+            </div>
           </div>
 
-        </div>
-        <span routerLink="/signup" >signUp</span>
+          <!-- Sign In Button -->
+          <div class="row">
+            <div class="col-12">
+              <button type="submit" class="span-signin" style="    width: 107px;
+    background: transparent;
+    border: 0;">Sign In</button>
+            </div>
+          </div>
+        </form>
+
+        <!-- Sign Up Link -->
+        <span routerLink="/signup">Sign Up</span>
       </div>
     </div>
   </div>
 </div>
+
 
