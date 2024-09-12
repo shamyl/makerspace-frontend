@@ -36,6 +36,7 @@ import { SidebarComponent } from './includes/sidebar/sidebar.component';
 import {SidebarModule} from 'primeng/sidebar';
 import {RippleModule} from 'primeng/ripple';
 import {StyleClassModule} from 'primeng/styleclass';
+import {FullCalendarModule} from '@fullcalendar/angular';
 
 
 @NgModule({
@@ -51,37 +52,38 @@ import {StyleClassModule} from 'primeng/styleclass';
     SidebarComponent,
 
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        NgbModule,
-        InputTextModule,
-        TableModule,
-        MatDialogModule,
-        MatButtonModule,
-        BrowserAnimationsModule,
-        CalendarModule,
-        SelectButtonModule,
-        FormsModule,
-        ToastrModule.forRoot({
-            timeOut: 5000,
-            positionClass: 'toast-bottom-right',
-            preventDuplicates: true,
-            progressBar: true,
-            closeButton: true
-        }),
-        MatInputModule,
-        CardModule,
-        HttpClientModule,
-        CheckboxModule,
-        MatSelectModule,
-        MatOptionModule,
-        MatFormFieldModule,
-        SidebarModule,
-        RippleModule,
-        StyleClassModule,
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    NgbModule,
+    InputTextModule,
+    TableModule,
+    MatDialogModule,
+    MatButtonModule,
+    BrowserAnimationsModule,
+    CalendarModule,
+    SelectButtonModule,
+    FormsModule,
+    ToastrModule.forRoot({
+      timeOut: 5000,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,
+      progressBar: true,
+      closeButton: true
+    }),
+    MatInputModule,
+    CardModule,
+    HttpClientModule,
+    CheckboxModule,
+    MatSelectModule,
+    MatOptionModule,
+    MatFormFieldModule,
+    SidebarModule,
+    RippleModule,
+    StyleClassModule,
+    FullCalendarModule,
 
-    ],
+  ],
   providers: [CoursesService, {  provide: HTTP_INTERCEPTORS,  useClass: IntercepterService,  multi: true}],
   bootstrap: [AppComponent]
 })

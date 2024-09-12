@@ -5,6 +5,8 @@
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 @import '~primeicons/primeicons.css';
 
+@import '~@fullcalendar/core/main.css';
+@import '~@fullcalendar/daygrid/main.css';
 ::ng-deep   .mat-form-field{
   display: block;
 }
