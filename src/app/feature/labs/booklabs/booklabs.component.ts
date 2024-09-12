@@ -1,10 +1,13 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {CoursesService} from '../../Courses/courses.service';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import { FullCalendarComponent } from '@fullcalendar/angular';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import resourceTimeGridPlugin from '@fullcalendar/resource-timegrid';
+import {AddEditCoursesComponent} from '../../Courses/AddEditCourse/add-edit-courses/add-edit-courses.component';
+import {MatDialog} from '@angular/material/dialog';
+import {AddEditEventComponent} from './AddEditEvent/add-edit-event.component';
 interface Booking {
   lab: string;
   date: Date;
@@ -77,6 +80,9 @@ export class BooklabsComponent implements OnInit {
     }
   ];
   @ViewChild('fullcalendar') fullcalendar: FullCalendarComponent | undefined;
+
+  constructor(private dialog: MatDialog) {
+  }
   ngOnInit() {
 
     // Don't use FullcalendarOption interface
@@ -108,7 +114,28 @@ export class BooklabsComponent implements OnInit {
     };
   }
   eventClick(model: any) {
-    console.log(model);
+    const event = {
+      id: model.event.id,
+      start: model.event.start,
+      end: model.event.end,
+      title: model.event.title
+    };
+    const dialogRef = this.dialog.open(AddEditEventComponent, {
+      panelClass: 'tt-dialog',
+      autoFocus: false,
+      width: '1000px',
+      height: 'auto',
+      data: event,
+    });
+    dialogRef.afterClosed().subscribe((calendarEvent: any) => {
+      if (!calendarEvent) {
+        return;
+      }
+      const updatedEvents = this.eventsModel.map((e: any) =>
+        e.id === calendarEvent.id ? { ...calendarEvent } : e
+      );
+      this.eventsModel = [...updatedEvents];
+    });
   }
 
   dateSelected(model: any) {
@@ -125,6 +152,19 @@ export class BooklabsComponent implements OnInit {
     if (model.date.getMonth() !== new Date().getMonth()) {
       return;
     }
+    const dialogRef = this.dialog.open(AddEditEventComponent, {
+      panelClass: 'tt-dialog',
+      autoFocus: false,
+      width: '1000px', // Specify dialog width
+      height: 'auto', // Specify dialog height
+      data: model,
+    });
+    dialogRef.afterClosed().subscribe((calendarEvent: any) => {
+      if (!calendarEvent) {
+        return;
+      }
+      this.eventsModel = [...this.eventsModel, calendarEvent];
+    });
   }
   updateHeader() {
     this.options.header = {

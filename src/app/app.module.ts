@@ -37,6 +37,11 @@ import {SidebarModule} from 'primeng/sidebar';
 import {RippleModule} from 'primeng/ripple';
 import {StyleClassModule} from 'primeng/styleclass';
 import {FullCalendarModule} from '@fullcalendar/angular';
+import {AddEditEventComponent} from './feature/labs/booklabs/AddEditEvent/add-edit-event.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {NgxMatDatetimePickerModule, NgxMatTimepickerModule} from '@angular-material-components/datetime-picker';
+import {NgxMatMomentModule} from '@angular-material-components/moment-adapter';
+import {DatePipe} from '@angular/common';
 
 
 @NgModule({
@@ -50,6 +55,7 @@ import {FullCalendarModule} from '@fullcalendar/angular';
     AddEditCoursesComponent,
     MembershipComponent,
     SidebarComponent,
+    AddEditEventComponent
 
   ],
   imports: [
@@ -82,9 +88,14 @@ import {FullCalendarModule} from '@fullcalendar/angular';
     RippleModule,
     StyleClassModule,
     FullCalendarModule,
+    MatDatepickerModule,
+    NgxMatDatetimePickerModule,
+    NgxMatTimepickerModule,
+    NgxMatMomentModule,
 
   ],
-  providers: [CoursesService, {  provide: HTTP_INTERCEPTORS,  useClass: IntercepterService,  multi: true}],
+  providers: [CoursesService, {  provide: HTTP_INTERCEPTORS,  useClass: IntercepterService,  multi: true},
+    DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

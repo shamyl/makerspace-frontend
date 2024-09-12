@@ -1,0 +1,43 @@
+<h2 mat-dialog-title>{{ course ? 'Edit Course' : 'Add Course' }}</h2>
+
+<div class="row" style="padding: 47px 55px">
+    <div class="col-lg-6 col-sm-12">
+        <div class="selection-option">
+            <span class="span-inp">Title *</span>
+            <mat-form-field appearance="outline" class="custom-mat-form-field custom-inp">
+                <input [(ngModel)]="course.title" matInput placeholder="Enter event title" type="text">
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="col-lg-6 col-sm-12">
+        <div class="selection-option">
+            <span class="span-inp">Start Date *</span>
+          <mat-form-field appearance="outline" class="custom-mat-form-field custom-inp">
+            <input matInput [ngxMatDatetimePicker]="picker1" [disabled]="disabled" [(ngModel)]="course.start">
+            <mat-datepicker-toggle matSuffix [for]="$any(picker1)"></mat-datepicker-toggle>
+            <ngx-mat-datetime-picker #picker1 [showSpinners]="showSpinners" [showSeconds]="showSeconds"
+                                     [stepHour]="stepHour" [stepMinute]="stepMinute" [stepSecond]="stepSecond" [touchUi]="touchUi"
+                                     [color]="color" [enableMeridian]="enableMeridian">
+            </ngx-mat-datetime-picker>
+          </mat-form-field>
+        </div>
+    </div>
+    <div class="col-lg-6 col-sm-12">
+        <div class="selection-option">
+            <span class="span-inp">End Date *</span>
+            <mat-form-field appearance="outline" class="custom-mat-form-field custom-inp">
+              <input matInput [ngxMatDatetimePicker]="picker" [disabled]="disabled" [(ngModel)]="course.end">
+              <mat-datepicker-toggle matSuffix [for]="$any(picker)"></mat-datepicker-toggle>
+              <ngx-mat-datetime-picker #picker [showSpinners]="showSpinners" [showSeconds]="showSeconds"
+                                       [stepHour]="stepHour" [stepMinute]="stepMinute" [stepSecond]="stepSecond" [touchUi]="touchUi"
+                                       [color]="color" [enableMeridian]="enableMeridian">
+              </ngx-mat-datetime-picker>
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="col-lg-12 col-sm-12">
+        <div class="d-flex justify-content-end">
+            <button mat-raised-button color="primary" (click)="save()">Submit</button>
+        </div>
+    </div>
+</div>
