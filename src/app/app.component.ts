@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,4 +9,11 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'makerspace';
   visible = false;
+
+  constructor(private router: Router) {}
+
+  // Method to check if the current route is the login page
+  isLoginPage(): boolean {
+    return this.router.url === '/login';  // Adjust if the login route is different
+  }
 }

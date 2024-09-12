@@ -1,0 +1,13 @@
+::ng-deep .sidebar-btn .p-button{
+  background: #dfe1e2;
+  border: 1px solid #dfe1e2;
+
+}
+::ng-deep .sidebar-btn .p-button:hover{
+  background: gray;
+  border: 1px solid gray;
+
+}
+::ng-deep .p-sidebar .p-sidebar-header{
+  display: none;
+}

@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
- // baseUrl: 'http://localhost:7100/makerspace/',
-  baseUrl: 'http://192.168.100.41:7100/makerspace/',
+ baseUrl: 'http://localhost:7100/makerspace/',
+ //  baseUrl: 'http://192.168.100.41:7100/makerspace/',
 };
 
 /*
