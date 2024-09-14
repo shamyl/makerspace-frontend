@@ -8,6 +8,7 @@ import resourceTimeGridPlugin from '@fullcalendar/resource-timegrid';
 import {AddEditCoursesComponent} from '../../Courses/AddEditCourse/add-edit-courses/add-edit-courses.component';
 import {MatDialog} from '@angular/material/dialog';
 import {AddEditEventComponent} from './AddEditEvent/add-edit-event.component';
+import {LabServiceService} from "../lab-service.service";
 interface Booking {
   lab: string;
   date: Date;
@@ -20,6 +21,8 @@ interface Booking {
 })
 
 export class BooklabsComponent implements OnInit {
+  labListByUser: any;
+  @ViewChild('fullcalendar') fullcalendar: FullCalendarComponent | undefined;
 //   selectedDate: Date | null = null;
 //   selectedLab!: any;
 //   labs: any;
@@ -72,18 +75,12 @@ export class BooklabsComponent implements OnInit {
 //     });
 //   }
   options: any;
-  eventsModel = [
-    {
-      id: 'a',
-      title: 'my event',
-      start: '2024-09-05'
-    }
-  ];
-  @ViewChild('fullcalendar') fullcalendar: FullCalendarComponent | undefined;
+  eventsModel: any;
 
-  constructor(private dialog: MatDialog) {
+  constructor(private dialog: MatDialog, private labService: LabServiceService) {
   }
   ngOnInit() {
+    this.getLabsByUserId();
 
     // Don't use FullcalendarOption interface
     this.options = {
@@ -149,6 +146,7 @@ export class BooklabsComponent implements OnInit {
     console.log(model);
   }
   dateClick(model: any) {
+    debugger
     if (model.date.getMonth() !== new Date().getMonth()) {
       return;
     }
@@ -189,6 +187,25 @@ export class BooklabsComponent implements OnInit {
   dayRender(ev: any) {
     ev.el.addEventListener('dblclick', () => {
       alert('double click!');
+    });
+  }
+
+  getLabsByUserId() {
+    const userData = localStorage.getItem('userInfo');
+    // @ts-ignore
+    const parsedData = JSON.parse(userData);
+
+    this.labService.getLabsByUserId(parsedData.id).subscribe(res => {
+      this.labListByUser = res;
+
+      // Map labListByUser to FullCalendar event format
+      this.eventsModel = this.labListByUser.map((lab: any) => ({
+        id: lab.id,
+        title: lab.name,
+        start: lab.startDateTime,
+        end: lab.endDateTime,
+      }));
+      console.log(this.eventsModel);
     });
   }
 }

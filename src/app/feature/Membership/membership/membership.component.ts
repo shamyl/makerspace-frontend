@@ -11,26 +11,41 @@ interface Membership {
   styleUrls: ['./membership.component.scss']
 })
 export class MembershipComponent implements OnInit {
-  memberships: Membership[] = [
+  memberships = [
     {
-      type: 'Monthly',
-      name: 'Basic Monthly',
-      description: 'Access to basic features and benefits for one month.',
-      benefits: ['Feature 1', 'Feature 2', 'Feature 3']
-    },
-    {
-      type: 'Quarterly',
-      name: 'Basic Quarterly',
-      description: 'Access to basic features and benefits for three months.',
-      benefits: ['Feature 1', 'Feature 2', 'Feature 3', 'Feature 4']
-    },
-    {
-      type: 'Yearly',
-      name: 'Basic Yearly',
-      description: 'Access to basic features and benefits for one year.',
-      benefits: ['Feature 1', 'Feature 2', 'Feature 3', 'Feature 4', 'Feature 5']
+      name: 'Python AI',
+      description: 'skills leans AI Computer programming ',
+      ratings: [1, 1, 1, 0, 0], // 4 stars
+      imageUrl: 'assets/images/python.png'
+    }, {
+      name: 'Python AI',
+      description: 'skills leans AI Computer programming ',
+      ratings: [1, 1, 1, 0, 0], // 4 stars
+      imageUrl: 'assets/images/python.png'
+    }, {
+      name: 'Python AI',
+      description: 'skills leans AI Computer programming ',
+      ratings: [1, 1, 1, 0, 0], // 4 stars
+      imageUrl: 'assets/images/python.png'
+    }, {
+      name: 'Python AI',
+      description: 'skills leans AI Computer programming ',
+      ratings: [1, 1, 1, 0, 0], // 4 stars
+      imageUrl: 'assets/images/python.png'
+    },{
+      name: 'Python AI',
+      description: 'skills leans AI Computer programming ',
+      ratings: [1, 1, 1, 0, 0], // 4 stars
+      imageUrl: 'assets/images/python.png'
+    },{
+      name: 'Python AI',
+      description: 'skills leans AI Computer programming ',
+      ratings: [1, 1, 1, 0, 0], // 4 stars
+      imageUrl: 'assets/images/python.png'
     }
-    ];
+  ];
+
+
   constructor() { }
 
   ngOnInit(): void {

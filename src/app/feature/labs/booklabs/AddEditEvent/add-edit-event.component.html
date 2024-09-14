@@ -1,14 +1,17 @@
-<h2 mat-dialog-title>{{ course ? 'Edit Course' : 'Add Course' }}</h2>
+<h2 mat-dialog-title>Book Labs</h2>
 
 <div class="row" style="padding: 47px 55px">
-    <div class="col-lg-6 col-sm-12">
-        <div class="selection-option">
-            <span class="span-inp">Title *</span>
-            <mat-form-field appearance="outline" class="custom-mat-form-field custom-inp">
-                <input [(ngModel)]="course.title" matInput placeholder="Enter event title" type="text">
-            </mat-form-field>
-        </div>
+  <div class="col-lg-6 col-sm-12">
+    <div class="selection-option">
+      <span class="span-inp">Time Period *</span>
+      <mat-form-field appearance="outline" class="custom-mat-form-field">
+        <mat-label>Select Time Period</mat-label>
+        <mat-select [(ngModel)]="course.labId" placeholder="Select Time Period">
+          <mat-option *ngFor="let lab of labList" [value]="lab.id">{{lab.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
     </div>
+  </div>
     <div class="col-lg-6 col-sm-12">
         <div class="selection-option">
             <span class="span-inp">Start Date *</span>

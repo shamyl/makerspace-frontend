@@ -1,53 +1,61 @@
-<div class="row" style="margin-bottom: 20px;">
+<div class="row" style="padding: 4px 52px">
   <div class="col-12">
     <!-- Back Arrow Icon with Router Link -->
     <a [routerLink]="['/dashboard']" style="text-decoration: none;">
-      <i class="pi pi-arrow-left" style="font-size: 24px; margin-right: 8px;"></i>
-      <span style="font-size: 18px; font-weight: bold;">Courses</span>
+      <span style="border: 1px solid #3661eb; border-radius: 3px; background: #3661eb; padding: 2px 8px "><i class="pi pi-arrow-left" style="font-size: 15px; color: white;"></i></span>
+      <span style="font-size: 20px; font-weight: bold; margin: 0 16px">Courses</span>
     </a>
   </div>
 </div>
+<div class="row" style="padding: 13px 29px">
+  <div class="col-12">
+    <div class="card">
+      <div class="row" style="padding: 13px 22px">
+        <div class="col-6 d-flex align-items-center justify-content-start">
+          <button pButton class="btn-primary" style="border-radius: 5px" (click)="addEditCourses()">Add Course</button>
+        </div>
+        <div class="col-6 d-flex align-items-center justify-content-end">
+          <div style="max-width: 400px;">
+           <input [(ngModel)]="searchTerm" (ngModelChange)="filterCourses()" placeholder="Search..." style="padding: 5px"> <i class="pi pi-search" style="position: absolute;
+    top: 14px;
+    right: 24px;"></i>
+          </div>
+        </div>
+      </div>
 
-<div class="row" style="padding: 13px 22px">
-  <div class="col-6 d-flex align-items-center justify-content-start">
-    <button pButton class="btn-primary" style="border-radius: 5px" (click)="addEditCourses()">Add Course</button>
-  </div>
-  <div class="col-6 d-flex align-items-center justify-content-end">
-    <div style="max-width: 400px;">
-      <input [(ngModel)]="searchTerm" (ngModelChange)="filterCourses()" placeholder="Search...">
-    </div>
-  </div>
-</div>
+      <p-table #dt [columns]="headersTable" [value]="filteredCourseList">
+        <!-- Table Header -->
+        <ng-template pTemplate="header" let-columns>
+          <tr>
+            <th *ngFor="let col of columns">
+              {{col.header}}
+            </th>
+          </tr>
+        </ng-template>
 
-<p-table #dt [columns]="headersTable" [value]="filteredCourseList">
-  <!-- Table Header -->
-  <ng-template pTemplate="header" let-columns>
-    <tr>
-      <th *ngFor="let col of columns">
-        {{col.header}}
-      </th>
-    </tr>
-  </ng-template>
-
-  <!-- Table Body -->
-  <ng-template pTemplate="body" let-rowData let-columns="columns">
-    <tr>
-      <td *ngFor="let col of columns">
-        <ng-container *ngIf="col.field === 'date'">
-          {{rowData[col.field] | date: 'mediumDate'}}
-        </ng-container>
-        <ng-container>
-          {{rowData[col.field]}}
-        </ng-container>
-        <ng-container *ngIf="col.field === 'action'">
+        <!-- Table Body -->
+        <ng-template pTemplate="body" let-rowData let-columns="columns">
+          <tr>
+            <td *ngFor="let col of columns">
+              <ng-container *ngIf="col.field === 'date'">
+                {{rowData[col.field] | date: 'mediumDate'}}
+              </ng-container>
+              <ng-container>
+                {{rowData[col.field]}}
+              </ng-container>
+              <ng-container *ngIf="col.field === 'action'">
           <span>
             <span (click)="addEditCourses(rowData)"><i class="pi pi-user-edit"></i></span>
             <span (click)="deleteUserbyid(rowData.id)"><i class="pi pi-user-minus"></i></span>
             <span (click)="getCoursebyUserId(rowData.id)"><i class="pi pi-list"></i></span>
           </span>
-        </ng-container>
-        <!-- Add more conditions based on your data structure -->
-      </td>
-    </tr>
-  </ng-template>
-</p-table>
+              </ng-container>
+              <!-- Add more conditions based on your data structure -->
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+
+  </div>
+</div>

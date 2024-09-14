@@ -49,6 +49,7 @@ export class LoginComponent implements OnInit {
     // Call the loginUser service method
     this.authService.loginUser(loginData).subscribe(
       (response: any) => {
+        localStorage.clear();
         // If login is successful, navigate to the dashboard
         if (response  ) {
           this.toast.success('Sucess', 'Login Successfully');
