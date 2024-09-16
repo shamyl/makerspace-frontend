@@ -42,6 +42,9 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {NgxMatDatetimePickerModule, NgxMatTimepickerModule} from '@angular-material-components/datetime-picker';
 import {NgxMatMomentModule} from '@angular-material-components/moment-adapter';
 import {DatePipe} from '@angular/common';
+import { CourseMainComponent } from './feature/Courses/course-main/course-main.component';
+import {MatTabsModule} from "@angular/material/tabs";
+import { ProjectsComponent } from './feature/projects/projects/projects.component';
 
 
 @NgModule({
@@ -55,7 +58,9 @@ import {DatePipe} from '@angular/common';
     AddEditCoursesComponent,
     MembershipComponent,
     SidebarComponent,
-    AddEditEventComponent
+    AddEditEventComponent,
+    CourseMainComponent,
+    ProjectsComponent
 
   ],
   imports: [
@@ -92,6 +97,7 @@ import {DatePipe} from '@angular/common';
     NgxMatDatetimePickerModule,
     NgxMatTimepickerModule,
     NgxMatMomentModule,
+    MatTabsModule,
 
   ],
   providers: [CoursesService, {  provide: HTTP_INTERCEPTORS,  useClass: IntercepterService,  multi: true},

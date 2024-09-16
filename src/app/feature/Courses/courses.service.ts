@@ -21,9 +21,9 @@ export class CoursesService {
     return this.http.get<any>(`${this.BASEURL}course/getCourseStatus`);
   }
   getCoursebyId(id: number): Observable<any> {
-    return this.http.get<any>(`${this.BASEURL}course/getCoursesByUserId?userId=${id}`);
+    return this.http.get<any>(`${this.BASEURL}course/${id}`);
   }
-  getAllCourses(): Observable<any> {
+    getAllCourses(): Observable<any> {
     return this.http.get<any>(`${this.BASEURL}lab/all?isActive=true`);
   }
   addCourse(params: any): Observable<any[]> {

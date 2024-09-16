@@ -32,12 +32,14 @@ export class MembershipComponent implements OnInit {
       description: 'skills leans AI Computer programming ',
       ratings: [1, 1, 1, 0, 0], // 4 stars
       imageUrl: 'assets/images/python.png'
-    },{
+    },
+    {
       name: 'Python AI',
       description: 'skills leans AI Computer programming ',
       ratings: [1, 1, 1, 0, 0], // 4 stars
       imageUrl: 'assets/images/python.png'
-    },{
+    },
+    {
       name: 'Python AI',
       description: 'skills leans AI Computer programming ',
       ratings: [1, 1, 1, 0, 0], // 4 stars

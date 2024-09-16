@@ -1,0 +1,24 @@
+<div class="membership-container">
+  <div class="membership-header">
+    <h2>List of All Courses</h2>
+    <p>Select a plan that suits your needs:</p>
+  </div>
+
+  <div class="membership-types">
+    <div class="membership-type" *ngFor="let course of courseList">
+      <p-card styleClass="membership-card" (click)="getCourseDetail(course.id)">
+        <div class="card-image">
+          <img src="assets/images/course-pix.jpg">
+        </div>
+        <div class="card-content">
+          <h3 class="membership-name">{{ course.name }}</h3>
+          <p class="membership-description">{{ course.description }}</p>
+        </div>
+        <div class="card-footer d-flex justify-content-start">
+          <span class="course-status">{{ course.status }},</span>
+          <span class="course-period">{{ course.timePeriod }}</span>
+        </div>
+      </p-card>
+    </div>
+  </div>
+</div>

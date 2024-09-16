@@ -1,0 +1,42 @@
+<!-- Navigation Bar -->
+<nav class="navbar">
+  <ul class="nav-links">
+    <li><a routerLink="/projects">Projects</a></li>
+    <li><a routerLink="/contributions">Contributions</a></li>
+    <li><a routerLink="/events">Events</a></li>
+  </ul>
+</nav>
+
+<!-- Main Content -->
+<div class="main-container">
+  <!-- Left Sidebar for Profile -->
+  <div class="profile-sidebar">
+    <img src="assets/images/pimages.jpeg" alt="Profile Picture" class="profile-pic" />
+    <div class="profile-info">
+      <h3>John Doe</h3>
+      <p>john.doe@example.com</p>
+    </div>
+  </div>
+
+  <!-- Right Section for Projects -->
+  <div class="projects-section">
+    <div class="project-card" *ngFor="let project of projects">
+      <p-card class="hover-card">
+        <ng-template pTemplate="header">
+          <div class="image-container">
+            <img src="assets/images/course-pix.jpg" class="project-image" alt="{{ project.name }}" style="width: 113%; height: 48vh;" />
+            <div class="overlay">
+              <div class="description">
+                <p>{{ project.name }}</p>
+                <p>{{ project.description }}</p>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+        <ng-template pTemplate="title">
+          <h4 class="project-name">{{ project.name }}</h4>
+        </ng-template>
+      </p-card>
+    </div>
+  </div>
+</div>

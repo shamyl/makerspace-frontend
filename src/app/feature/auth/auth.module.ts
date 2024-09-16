@@ -17,6 +17,8 @@ import {BooklabsComponent} from '../labs/booklabs/booklabs.component';
 import { CalendarModule } from 'primeng/calendar';
 import {MembershipComponent} from '../Membership/membership/membership.component';
 import {CourseDetailsDialogComponent} from '../Courses/course-details-dialog/course-details-dialog.component';
+import {CourseMainComponent} from "../Courses/course-main/course-main.component";
+import {ProjectsComponent} from "../projects/projects/projects.component";
 
 
 const routes: Routes = [
@@ -47,8 +49,13 @@ const routes: Routes = [
       },
       {
         path: 'courses',
-        component: CoursesComponent,
-      },{
+        component: CourseMainComponent,
+      },
+      {
+        path: 'Projects',
+        component: ProjectsComponent,
+      },
+      {
         path: 'booklabs',
         component: BooklabsComponent,
       },
