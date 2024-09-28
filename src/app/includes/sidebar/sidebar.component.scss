@@ -1,6 +1,6 @@
 .card{
   width: 100%;
-  border: 1px solid #eaeaea;
+  border: 1px solid #1f3557;
   height: 100%;
 }
 .span-last-head{
@@ -38,11 +38,25 @@
 .profile-name {
   font-size: 16px;
   font-weight: bold;
-  color: #333;
+  color: white;
+  margin: 0 36px;
 }
 
+/* Navbar Custom Styling */
 .navbar-custom {
+  position: fixed; /* Makes the navbar stick at the top */
+  top: 0;
+  left: 0;
+  width: 100%; /* Ensures the navbar spans the full width */
+  z-index: 1000; /* Places the navbar on top of the content */
   padding: 10px 20px;
+  background-color: #1f3557 !important; /* Custom background color */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow for effect */
+}
+
+/* Push the content below the fixed navbar */
+.content-wrapper {
+  padding-top: 80px; /* Add padding equal to navbar height */
 }
 
 .navbar-brand img {
@@ -53,7 +67,7 @@
 .navbar-nav .nav-link {
   font-size: 1.2em;
   margin-left: 20px;
-  color: #333;
+  color: white;
 }
 
 .navbar-nav .nav-link:hover {
@@ -65,18 +79,26 @@
   display: inline-block;
 }
 
-.profile-link {
-  text-decoration: none;
-  color: #333;
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: white;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  min-width: 160px;
 }
 
-.profile-link:hover {
-  color: #007bff;
+.dropdown-menu.show {
+  display: block;
 }
 
-.profile-name {
-  font-size: 1.2em;
-  font-weight: bold;
+.dropdown-item {
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  background-color: #f1f1f1;
 }
 
 @media (max-width: 768px) {
@@ -88,6 +110,7 @@
     margin-top: 10px;
   }
 }
+
 
 .dropdown-menu {
   display: none;

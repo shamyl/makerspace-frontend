@@ -54,6 +54,9 @@ const routes: Routes = [
       {
         path: 'Projects',
         component: ProjectsComponent,
+      }, {
+        path: 'adminC',
+        component: CoursesComponent,
       },
       {
         path: 'booklabs',

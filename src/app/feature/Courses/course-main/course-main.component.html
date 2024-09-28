@@ -4,6 +4,11 @@
     <p>Select a plan that suits your needs:</p>
   </div>
 
+<!--  <span style="    border: 1px solid;-->
+<!--    border-radius: 5px;-->
+<!--    padding: 4px 6px;-->
+<!--    background: #3661eb;-->
+<!--    color: white;" routerLink="/adminC">AllCourses</span>-->
   <div class="membership-types">
     <div class="membership-type" *ngFor="let course of courseList">
       <p-card styleClass="membership-card" (click)="getCourseDetail(course.id)">
@@ -22,3 +27,4 @@
     </div>
   </div>
 </div>
+

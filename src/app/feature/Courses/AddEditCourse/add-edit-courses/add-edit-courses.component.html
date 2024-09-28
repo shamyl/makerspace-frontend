@@ -37,7 +37,6 @@
         <div class="selection-option">
             <span class="span-inp">Time Period *</span>
             <mat-form-field appearance="outline" class="custom-mat-form-field">
-                <mat-label>Select Time Period</mat-label>
                 <mat-select [(ngModel)]="course.timePeriod" placeholder="Select Time Period">
                     <mat-option *ngFor="let time of timePeriodList" [value]="time">{{time}}</mat-option>
                 </mat-select>
@@ -48,7 +47,6 @@
         <div class="selection-option">
             <span class="span-inp">Status *</span>
             <mat-form-field appearance="outline" class="custom-mat-form-field">
-                <mat-label>Select status</mat-label>
                 <mat-select [(ngModel)]="course.status" placeholder="Select Time Period">
                     <mat-option *ngFor="let status of status" [value]="status">{{status}}</mat-option>
                 </mat-select>
@@ -65,7 +63,7 @@
     </div>
     <div class="col-lg-12 col-sm-12">
         <div class="d-flex justify-content-end">
-            <button mat-raised-button color="primary" (click)="save()">Submit</button>
+            <button mat-raised-button color="primary" (click)="save()" style="margin: 0 11px">Submit</button>
             <button mat-raised-button color="warn" (click)="resetForm()">Reset</button>
         </div>
     </div>

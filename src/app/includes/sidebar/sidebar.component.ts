@@ -11,11 +11,22 @@ export class SidebarComponent implements OnInit {
   visible = false;
   @ViewChild('sidebarRef') sidebarRef!: Sidebar;
    dropdownVisible: any;
+   userName: any;
+   userEmail: any;
 
 
   constructor(private router: Router) { }
 
   ngOnInit(): void {
+    const userData = localStorage.getItem('userInfo');
+    if (userData) {
+      const parsedData = JSON.parse(userData);
+      const firstName = parsedData.firstName || '';
+      const lastName = parsedData.lastName || '';
+
+      this.userName = `${firstName} ${lastName}`.trim();
+      this.userEmail = parsedData.email || 'email@example.com';
+    }
   }
   closeCallback(e: any): void {
     this.sidebarRef.close(e);

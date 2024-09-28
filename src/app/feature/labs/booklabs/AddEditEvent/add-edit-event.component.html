@@ -3,9 +3,8 @@
 <div class="row" style="padding: 47px 55px">
   <div class="col-lg-6 col-sm-12">
     <div class="selection-option">
-      <span class="span-inp">Time Period *</span>
+      <span class="span-inp">Lab Title *</span>
       <mat-form-field appearance="outline" class="custom-mat-form-field">
-        <mat-label>Select Time Period</mat-label>
         <mat-select [(ngModel)]="course.labId" placeholder="Select Time Period">
           <mat-option *ngFor="let lab of labList" [value]="lab.id">{{lab.name}}</mat-option>
         </mat-select>
