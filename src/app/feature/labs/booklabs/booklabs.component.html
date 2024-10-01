@@ -23,7 +23,7 @@
 <!--    </p-table>-->
 <!--</div>-->
 
-
+<div style="padding: 30px">
 <full-calendar
   *ngIf="options"
   #fullcalendar
@@ -41,3 +41,4 @@
   (select)="dateSelected($event)"
   [columnHeaderHtml]="options.columnHeaderHtml"
 ></full-calendar>
+</div>

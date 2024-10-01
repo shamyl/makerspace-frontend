@@ -1,44 +1,110 @@
-.membership-container {
+/* Container for membership section */
+::ng-deep .membership-container {
   text-align: center;
-  margin: 40px auto;
-  max-width: 1200px;
+  margin: -51px auto;
+  max-width: 1200px; /* Constrain the container width */
+  position: relative; /* Relative positioning for z-index stacking */
+  z-index: 2; /* Content should appear on top */
+  min-height: 100vh; /* Full screen height */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Ensure content starts from the top */
+  align-items: center;
+  padding-top: 100px; /* Push the content down to avoid overlap */
 }
 
-.membership-header h2 {
+/* Background container for 70/30 layout */
+::ng-deep .background-container {
+  position: fixed; /* Make the background fixed to the viewport */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; /* Full height for both background sections */
+  z-index: 1; /* Keep the background behind the content */
+  overflow: hidden;
+}
+
+/* First background image (70% height) */
+::ng-deep .background-70 {
+  background-image: url('/assets/images/Membership-bg.png'); /* Replace with your first image */
+  background-size: cover;
+  background-position: center;
+  height: 70vh; /* Takes up 70% of the viewport height */
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+/* Second background image (30% height) */
+::ng-deep .background-30 {
+  background-image: url('/assets/images/Membership-bg-half.png'); /* Replace with your second image */
+  background-size: cover;
+  background-position: center;
+  height: 30vh; /* Takes up 30% of the viewport height */
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
+
+/* Membership header */
+::ng-deep .membership-header {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 30px;
+  padding-top: 50px; /* Added space above the header */
+}
+
+::ng-deep .membership-header h2 {
   font-size: 2.5em;
   color: #333;
   margin-bottom: 10px;
 }
 
-.membership-header p {
+::ng-deep .membership-header p {
   font-size: 1.2em;
   color: #666;
   margin-bottom: 30px;
 }
 
-.membership-types {
+/* Membership types container */
+::ng-deep .membership-types {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  z-index: 2; /* Ensures content stays above the background */
+  width: 100%; /* Ensure the membership types fit within the container */
+  max-width: 100%; /* Ensure no overflow */
+  margin-top: 20px;
 }
 
-.membership-type {
+/* Membership type cards */
+::ng-deep .membership-type {
   flex: 1 1 calc(33% - 40px);
   margin: 20px;
+  max-width: calc(33% - 40px); /* Prevent cards from overflowing the background */
 }
 
-.membership-card {
+::ng-deep .membership-card {
   border: 1px solid #e0e0e0;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   cursor: pointer;
+  border-radius: 5px;
   padding-bottom: 20px;
+  z-index: 2; /* Ensures the card is above the background */
+  height: 100%; /* Ensure the card fits well */
+  max-height: 450px; /* Limit height if needed */
 }
 
-.membership-card:hover {
+::ng-deep .membership-card:hover {
   transform: scale(1.05);
 }
 
+/* Image inside the card */
 .card-image img {
   width: 100%;
   height: 200px;
@@ -46,24 +112,25 @@
   border-radius: 5px 5px 0 0;
 }
 
-.card-content {
+::ng-deep .card-content {
   padding: 15px;
   text-align: center;
 }
 
-.membership-name {
+::ng-deep .membership-name {
   font-size: 1.5em;
-  margin: 10px 0;
+  margin: 0 0 10px;
   color: #333;
 }
 
-.membership-description {
+::ng-deep .membership-description {
   font-size: 1.1em;
   color: #666;
-  margin-bottom: 10px;
+  margin-bottom: -3px;
+  padding: 23px !important;
 }
 
-.membership-ratings {
+::ng-deep .membership-ratings {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -71,10 +138,19 @@
 
 .rating-star {
   color: gold;
-  font-size: 1.2em;
+  font-size: 30px;
   margin-right: 5px;
 }
 
 .rating-star:last-child {
   margin-right: 0;
 }
+
+/* Ensure padding within PrimeNG cards is controlled */
+//::ng-deep .p-card-body {
+//  padding: 8px 16px 0;
+//}
+//
+//::ng-deep .p-card-content {
+//  padding: 0;
+//}

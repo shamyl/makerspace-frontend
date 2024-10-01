@@ -1,30 +1,24 @@
-<div class="membership-container">
-  <div class="membership-header">
-    <h2>List of All Courses</h2>
-    <p>Select a plan that suits your needs:</p>
+<div class="bg-image">
+<div class="course-container">
+  <div class="course-header">
+    <span class="span-head">Explore Courses</span>
   </div>
-
-<!--  <span style="    border: 1px solid;-->
-<!--    border-radius: 5px;-->
-<!--    padding: 4px 6px;-->
-<!--    background: #3661eb;-->
-<!--    color: white;" routerLink="/adminC">AllCourses</span>-->
-  <div class="membership-types">
-    <div class="membership-type" *ngFor="let course of courseList">
+  <div class="course-types">
+    <div class="course-type" *ngFor="let course of courseList">
+      <!-- Adjust the card image styling -->
+      <div class="card-image">
+        <img src="assets/images/course-pix.jpg" alt="Course Image">
+      </div>
       <p-card styleClass="membership-card" (click)="getCourseDetail(course.id)">
-        <div class="card-image">
-          <img src="assets/images/course-pix.jpg">
-        </div>
         <div class="card-content">
-          <h3 class="membership-name">{{ course.name }}</h3>
-          <p class="membership-description">{{ course.description }}</p>
-        </div>
-        <div class="card-footer d-flex justify-content-start">
-          <span class="course-status">{{ course.status }},</span>
-          <span class="course-period">{{ course.timePeriod }}</span>
+          <h3 class="course-name">{{ course.name }}</h3>
+          <p class="course-description">{{ course.description }}</p>
+          <div class="d-flex align-items-center justify-content-end">
+            <span style="border: 1px solid #fa7d18; padding: 10px; border-radius: 5px; background: #fa7d18; color: white; font-size: 14px">Enroll Now</span>
+          </div>
         </div>
       </p-card>
     </div>
   </div>
 </div>
-
+</div>

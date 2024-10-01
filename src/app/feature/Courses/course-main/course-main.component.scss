@@ -1,102 +1,95 @@
-.membership-container {
+::ng-deep  .bg-image {
+  background-image: url("/assets/images/course-bg.png"); /* Path to your background image */
+  background-size: cover; /* Ensures the image covers the entire page */
+  background-position: center; /* Centers the image */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  background-attachment: fixed; /* Keeps the background image fixed while scrolling */
+  margin: 0;
+  padding: 0;
+  min-height: 100vh; /* Ensures the background covers the full viewport height */
+}
+/* Container styling */
+.course-container {
   text-align: center;
-  margin: 40px auto;
-  max-width: 1200px;
 }
 
-.membership-header h2 {
-  font-size: 2.5em;
-  color: #333;
-  margin-bottom: 10px;
-}
-
-.membership-header p {
-  font-size: 1.2em;
-  color: #666;
-  margin-bottom: 30px;
-}
-
-.membership-types {
+.span-head {
   display: flex;
-  justify-content: space-between; /* Spacing between the cards */
+  align-items: center;
+  justify-content: center;
+  padding: 36px;
+  font-size: 31px;
+  font-weight: bold;
+  color: #2b6ca4;
+}
+
+/* Flexbox layout for the membership types */
+.course-types {
+  display: flex;
+  justify-content: space-between;
   flex-wrap: wrap;
-  gap: 20px; /* Add spacing between the cards */
+  gap: 30px;
+  padding: 57px 250px;
 }
 
-.membership-type {
-  flex: 1 1 calc(33.33% - 20px); /* Ensure 3 cards per row by setting the flex-basis to 33.33% */
-  margin-bottom: 20px; /* Add margin between rows */
+/* Each membership type (card wrapper) */
+.course-type {
+  flex: 1 1 calc(33.33% - 20px);
+  margin-bottom: 20px;
 }
 
-.membership-card {
+/* Membership card styling */
+.course-card {
   border: 1px solid #e0e0e0;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   cursor: pointer;
   padding-bottom: 20px;
-  height: 400px; /* Set a fixed height for the card */
+  height: 400px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.9);
 }
 
-.membership-card:hover {
-  transform: scale(1.05);
+/* Image container and styling */
+.card-image {
+  margin: -11px 0 0; /* Adjust margin to avoid overlap */
+  border-radius: 5px 5px 0 0; /* Rounded corners at the top */
 }
 
 .card-image img {
-  width: 94%;
-  height: 226px; /* Fixed height for the image */
-  object-fit: cover; /* Ensures the image fits without being cut off */
-  border-radius: 5px 5px 0 0;
+  width: 100%;
+  height: 75px; /* Set a height for the image */
+  object-fit: cover; /* Ensures the image covers the area while maintaining aspect ratio */
+  border-radius: 5px 5px 0 0; /* Match the container's rounded corners */
 }
 
+/* Content styling */
 .card-content {
   padding: 15px;
   text-align: center;
   flex-grow: 1;
-  overflow: hidden;
 }
 
-.membership-name {
+.course-name {
   font-size: 1.5em;
   margin: 10px 0;
   color: #333;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis; /* Ensures the text doesn't exceed one line */
 }
 
-.membership-description {
+.course-description {
   font-size: 1.1em;
   color: #666;
-  margin-bottom: 10px;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 3; /* Limits the description to 3 lines */
-  -webkit-box-orient: vertical;
+  padding: 23px;
 }
 
+/* Enroll Now button */
 .d-flex {
   justify-content: center;
   flex-grow: 0;
 }
-
-
-//.membership-ratings {
-//  display: flex;
-//  justify-content: center;
-//  align-items: center;
-//}
-//
-//.rating-star {
-//  color: gold;
-//  font-size: 1.2em;
-//  margin-right: 5px;
-//}
-//
-//.rating-star:last-child {
-//  margin-right: 0;
-//}
+::ng-deep .p-card .p-card-body {
+  padding: 6px 10px 0;
+}

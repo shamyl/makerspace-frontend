@@ -1,45 +1,77 @@
-<h2 mat-dialog-title>Book Labs</h2>
+<h2 mat-dialog-title style="color: #1f3557; font-weight: bolder; padding: 6px;">Book Labs</h2>
 
-<div class="row" style="padding: 47px 55px">
+<div class="row" style="padding: 47px 55px;">
+  <!-- Lab Title -->
   <div class="col-lg-6 col-sm-12">
     <div class="selection-option">
-      <span class="span-inp">Lab Title *</span>
       <mat-form-field appearance="outline" class="custom-mat-form-field">
-        <mat-select [(ngModel)]="course.labId" placeholder="Select Time Period">
-          <mat-option *ngFor="let lab of labList" [value]="lab.id">{{lab.name}}</mat-option>
+        <mat-label>Lab Title *</mat-label>
+        <mat-select [(ngModel)]="course.labId" placeholder="Select Lab">
+          <mat-option *ngFor="let lab of labList" [value]="lab.id">{{ lab.name }}</mat-option>
         </mat-select>
+
       </mat-form-field>
     </div>
   </div>
-    <div class="col-lg-6 col-sm-12">
-        <div class="selection-option">
-            <span class="span-inp">Start Date *</span>
-          <mat-form-field appearance="outline" class="custom-mat-form-field custom-inp">
-            <input matInput [ngxMatDatetimePicker]="picker1" [disabled]="disabled" [(ngModel)]="course.start">
-            <mat-datepicker-toggle matSuffix [for]="$any(picker1)"></mat-datepicker-toggle>
-            <ngx-mat-datetime-picker #picker1 [showSpinners]="showSpinners" [showSeconds]="showSeconds"
-                                     [stepHour]="stepHour" [stepMinute]="stepMinute" [stepSecond]="stepSecond" [touchUi]="touchUi"
-                                     [color]="color" [enableMeridian]="enableMeridian">
-            </ngx-mat-datetime-picker>
-          </mat-form-field>
-        </div>
+
+  <!-- Selected Date with clock icon -->
+  <div class="col-lg-6 col-sm-12">
+    <div class="selection-option">
+      <mat-form-field appearance="outline" class="custom-mat-form-field">
+        <mat-label>Selected Date *</mat-label>
+        <mat-icon matPrefix STYLE="margin: 0 11px">event</mat-icon> <!-- Clock icon -->
+        <input matInput [ngxMatDatetimePicker]="picker1" [disabled]="disabled" [(ngModel)]="course.start">
+        <mat-datepicker-toggle matSuffix [for]="$any(picker1)"></mat-datepicker-toggle>
+        <ngx-mat-datetime-picker #picker1 [showSpinners]="showSpinners" [showSeconds]="showSeconds"
+                                 [stepHour]="stepHour" [stepMinute]="stepMinute" [stepSecond]="stepSecond"
+                                 [touchUi]="touchUi" [color]="color" [enableMeridian]="enableMeridian">
+        </ngx-mat-datetime-picker>
+        <mat-icon matSuffix style="margin: -33px 8px" >arrow_drop_down</mat-icon>
+      </mat-form-field>
     </div>
-    <div class="col-lg-6 col-sm-12">
-        <div class="selection-option">
-            <span class="span-inp">End Date *</span>
-            <mat-form-field appearance="outline" class="custom-mat-form-field custom-inp">
-              <input matInput [ngxMatDatetimePicker]="picker" [disabled]="disabled" [(ngModel)]="course.end">
-              <mat-datepicker-toggle matSuffix [for]="$any(picker)"></mat-datepicker-toggle>
-              <ngx-mat-datetime-picker #picker [showSpinners]="showSpinners" [showSeconds]="showSeconds"
-                                       [stepHour]="stepHour" [stepMinute]="stepMinute" [stepSecond]="stepSecond" [touchUi]="touchUi"
-                                       [color]="color" [enableMeridian]="enableMeridian">
-              </ngx-mat-datetime-picker>
-            </mat-form-field>
-        </div>
+  </div>
+
+  <!-- Start Date with clock icon -->
+  <div class="col-lg-6 col-sm-12">
+    <div class="selection-option">
+      <mat-form-field appearance="outline" class="custom-mat-form-field">
+        <mat-label STYLE="margin: 0 11px">Start Date *</mat-label>
+        <mat-icon matPrefix>access_time</mat-icon> <!-- Clock icon -->
+        <input matInput [ngxMatDatetimePicker]="picker2" [disabled]="disabled" [(ngModel)]="course.start">
+        <mat-datepicker-toggle matSuffix [for]="$any(picker2)"></mat-datepicker-toggle>
+        <ngx-mat-datetime-picker #picker2 [showSpinners]="showSpinners" [showSeconds]="showSeconds"
+                                 [stepHour]="stepHour" [stepMinute]="stepMinute" [stepSecond]="stepSecond"
+                                 [touchUi]="touchUi" [color]="color" [enableMeridian]="enableMeridian">
+        </ngx-mat-datetime-picker>
+        <mat-icon matSuffix style="margin: -33px 8px" >arrow_drop_down</mat-icon>
+      </mat-form-field>
     </div>
-    <div class="col-lg-12 col-sm-12">
-        <div class="d-flex justify-content-end">
-            <button mat-raised-button color="primary" (click)="save()">Submit</button>
-        </div>
+  </div>
+
+  <!-- End Date with clock icon -->
+  <div class="col-lg-6 col-sm-12">
+    <div class="selection-option">
+      <mat-form-field appearance="outline" class="custom-mat-form-field">
+        <mat-label STYLE="margin: 0 11px">End Date *</mat-label>
+        <mat-icon matPrefix STYLE="margin: 0 11px">access_time</mat-icon> <!-- Clock icon -->
+        <input matInput [ngxMatDatetimePicker]="picker3" [disabled]="disabled" [(ngModel)]="course.end">
+        <mat-datepicker-toggle matSuffix [for]="$any(picker3)"></mat-datepicker-toggle>
+        <ngx-mat-datetime-picker #picker3 [showSpinners]="showSpinners" [showSeconds]="showSeconds"
+                                 [stepHour]="stepHour" [stepMinute]="stepMinute" [stepSecond]="stepSecond"
+                                 [touchUi]="touchUi" [color]="color" [enableMeridian]="enableMeridian">
+        </ngx-mat-datetime-picker>
+        <mat-icon matSuffix style="margin: -33px 8px" >arrow_drop_down</mat-icon>
+      </mat-form-field>
     </div>
+  </div>
+
+  <!-- Submit Button -->
+  <div class="col-lg-12 col-sm-12">
+    <div class="d-flex justify-content-end">
+      <button mat-raised-button color="primary" (click)="save()"
+              style="background: #fa7d18; color: white; padding: 0 33px;">
+        Submit
+      </button>
+    </div>
+  </div>
 </div>

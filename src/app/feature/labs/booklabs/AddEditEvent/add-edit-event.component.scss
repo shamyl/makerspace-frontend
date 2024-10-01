@@ -1,3 +1,6 @@
 ::ng-deep .mat-form-field{
   display: block !important;
 }
+::ng-deep .mat-datepicker-toggle .mat-button-wrapper {
+  visibility: hidden; /* Hide the icon but keep the functionality */
+}
