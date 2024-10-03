@@ -3,7 +3,7 @@
 <!--    <p style="color: white"> Loading... </p>-->
 <!--</ngx-spinner>-->
 <!-- Display sidebar only if not on the login page -->
-<app-sidebar *ngIf="!isLoginPage()"></app-sidebar>
+<app-sidebar *ngIf="!isLoginPage() && !isSignupPage()"></app-sidebar>
 <div style="padding: 55px 0">
 <router-outlet></router-outlet>
 </div>

@@ -16,4 +16,7 @@ export class AppComponent {
   isLoginPage(): boolean {
     return this.router.url === '/login';  // Adjust if the login route is different
   }
+  isSignupPage(): boolean {
+    return this.router.url === '/signup';  // Adjust if the login route is different
+  }
 }
