@@ -8,7 +8,7 @@ import resourceTimeGridPlugin from '@fullcalendar/resource-timegrid';
 import {AddEditCoursesComponent} from '../../Courses/AddEditCourse/add-edit-courses/add-edit-courses.component';
 import {MatDialog} from '@angular/material/dialog';
 import {AddEditEventComponent} from './AddEditEvent/add-edit-event.component';
-import {LabServiceService} from "../lab-service.service";
+import {LabServiceService} from '../lab-service.service';
 interface Booking {
   lab: string;
   date: Date;
@@ -146,7 +146,6 @@ export class BooklabsComponent implements OnInit {
     console.log(model);
   }
   dateClick(model: any) {
-    debugger
     if (model.date.getMonth() !== new Date().getMonth()) {
       return;
     }
@@ -201,7 +200,7 @@ export class BooklabsComponent implements OnInit {
       // Map labListByUser to FullCalendar event format
       this.eventsModel = this.labListByUser.map((lab: any) => ({
         id: lab.id,
-        title: lab.name,
+        title: lab?.labView?.name,
         start: lab.startDateTime,
         end: lab.endDateTime,
       }));

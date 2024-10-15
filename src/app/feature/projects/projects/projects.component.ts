@@ -39,9 +39,23 @@ export class ProjectsComponent implements OnInit {
     },
     // Add more projects here
   ];
+   userName: any;
+   userEmail: any;
   constructor() { }
 
   ngOnInit(): void {
+    const userData = localStorage.getItem('userInfo');
+    if (userData) {
+      const parsedData = JSON.parse(userData);
+      const firstName = parsedData.firstName || '';
+      const lastName = parsedData.lastName || '';
+
+      this.userName = `${firstName} ${lastName}`.trim();
+      this.userEmail = parsedData.email || 'email@example.com';
+    }
   }
 
+  editProfile() {
+
+  }
 }

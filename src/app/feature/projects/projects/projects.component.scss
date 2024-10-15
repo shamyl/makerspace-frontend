@@ -1,4 +1,30 @@
 /* Navigation Bar Styling */
+/* Main Container Background */
+.main-container {
+  height: 100vh; /* Set the height of the container */
+  background-image: url('/assets/images/profile-bg.png'); /* Change to your background image path */
+  background-size: cover; /* Cover the entire container */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-position: center; /* Center the background image */
+  padding: 20px; /* Add padding to the container */
+  border-radius: 10px; /* Optional: Add rounded corners to the container */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Optional: Add shadow for depth */
+}
+
+/* Profile Sidebar */
+.profile-sidebar {
+  background-color: rgba(255, 255, 255, 0.9); /* Optional: Background color for the sidebar */
+  padding: 20px;
+  border-radius: 10px;
+}
+
+/* Projects Section */
+.projects-section {
+  background-color: rgba(255, 255, 255, 0.9); /* Optional: Background color for the projects section */
+  padding: 20px;
+  border-radius: 10px;
+}
+
 .navbar {
   background-color: #333;
   padding: 15px;
@@ -35,21 +61,24 @@
 .profile-sidebar {
   width: 20%;
   padding: 20px;
-  background-color: #f4f4f4;
+  background-color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  margin: 66px 20px;
 }
 
 .profile-pic {
-  width: 150px;
+  width: 146px;
   height: 150px;
-  border-radius: 0; /* Square shape */
+  border-radius: 50%;
   object-fit: cover;
-  margin-bottom: 20px;
+  border: 10px solid #2828c5;
+  margin: -82px 0 8px;
 }
+
 
 .profile-info {
   text-align: center;
@@ -69,9 +98,8 @@
 .projects-section {
   width: 80%;
   padding: 20px;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 .project-card {
