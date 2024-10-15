@@ -12,8 +12,6 @@ import { DashboardComponent } from './feature/dashboard/dashboard/dashboard.comp
 import { CoursesComponent } from './feature/Courses/courses/courses.component';
 import {TableModule} from 'primeng/table';
 import { CourseDetailsDialogComponent } from './feature/Courses/course-details-dialog/course-details-dialog.component';
-import {MatLegacyDialogModule as MatDialogModule} from '@angular/material/legacy-dialog';
-import {MatLegacyButtonModule as MatButtonModule} from '@angular/material/legacy-button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ActivitiesComponent } from './feature/Courses/activities/activities.component';
 import { BooklabsComponent } from './feature/labs/booklabs/booklabs.component';
@@ -21,15 +19,11 @@ import {CalendarModule} from 'primeng/calendar';
 import {SelectButtonModule} from 'primeng/selectbutton';
 import {FormsModule} from '@angular/forms';
 import { AddEditCoursesComponent } from './feature/Courses/AddEditCourse/add-edit-courses/add-edit-courses.component';
-import {MatLegacyInputModule as MatInputModule} from '@angular/material/legacy-input';
 import { MembershipComponent } from './feature/Membership/membership/membership.component';
 import {CardModule} from 'primeng/card';
 import {CoursesService} from 'src/app/feature/Courses/courses.service';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {CheckboxModule} from 'primeng/checkbox';
-import {MatLegacySelectModule as MatSelectModule} from '@angular/material/legacy-select';
-import {MatLegacyOptionModule as MatOptionModule} from '@angular/material/legacy-core';
-import { MatLegacyFormFieldModule as MatFormFieldModule } from '@angular/material/legacy-form-field';
 import {IntercepterService} from './core/common/intercepter.service';
 import {ToastrModule} from 'ngx-toastr';
 import { SidebarComponent } from './includes/sidebar/sidebar.component';
@@ -43,9 +37,15 @@ import {NgxMatDatetimePickerModule, NgxMatTimepickerModule} from '@angular-mater
 import {NgxMatMomentModule} from '@angular-material-components/moment-adapter';
 import {DatePipe} from '@angular/common';
 import { CourseMainComponent } from './feature/Courses/course-main/course-main.component';
-import {MatLegacyTabsModule as MatTabsModule} from "@angular/material/legacy-tabs";
 import { ProjectsComponent } from './feature/projects/projects/projects.component';
-import {MatIconModule} from "@angular/material/icon";
+import {MatTab, MatTabGroup, MatTabsModule} from '@angular/material/tabs';
+import {MatIconModule} from '@angular/material/icon';
+import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
+import {MatOptionModule} from '@angular/material/core';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatButtonModule} from '@angular/material/button';
 
 
 @NgModule({
@@ -64,44 +64,44 @@ import {MatIconModule} from "@angular/material/icon";
     ProjectsComponent
 
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        NgbModule,
-        InputTextModule,
-        TableModule,
-        MatDialogModule,
-        MatButtonModule,
-        BrowserAnimationsModule,
-        CalendarModule,
-        SelectButtonModule,
-        FormsModule,
-        ToastrModule.forRoot({
-            timeOut: 5000,
-            positionClass: 'toast-bottom-right',
-            preventDuplicates: true,
-            progressBar: true,
-            closeButton: true
-        }),
-        MatInputModule,
-        CardModule,
-        HttpClientModule,
-        CheckboxModule,
-        MatSelectModule,
-        MatOptionModule,
-        MatFormFieldModule,
-        SidebarModule,
-        RippleModule,
-        StyleClassModule,
-        FullCalendarModule,
-        MatDatepickerModule,
-        NgxMatDatetimePickerModule,
-        NgxMatTimepickerModule,
-        NgxMatMomentModule,
-        MatTabsModule,
-        MatIconModule,
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    InputTextModule,
+    TableModule,
+    MatDialogModule,
+    MatButtonModule,
+    BrowserAnimationsModule,
+    CalendarModule,
+    SelectButtonModule,
+    FormsModule,
+    ToastrModule.forRoot({
+      timeOut: 5000,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,
+      progressBar: true,
+      closeButton: true
+    }),
+    MatInputModule,
+    CardModule,
+    HttpClientModule,
+    CheckboxModule,
+    MatSelectModule,
+    MatOptionModule,
+    MatFormFieldModule,
+    SidebarModule,
+    RippleModule,
+    StyleClassModule,
+    FullCalendarModule,
+    MatDatepickerModule,
+    NgxMatDatetimePickerModule,
+    NgxMatTimepickerModule,
+    NgxMatMomentModule,
+    MatTabsModule,
+    MatIconModule,
+    MatTabGroup,
 
-    ],
+  ],
   providers: [CoursesService, {  provide: HTTP_INTERCEPTORS,  useClass: IntercepterService,  multi: true},
     DatePipe],
   bootstrap: [AppComponent]
