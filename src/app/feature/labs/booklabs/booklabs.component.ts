@@ -6,7 +6,7 @@ import { FullCalendarComponent } from '@fullcalendar/angular';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import resourceTimeGridPlugin from '@fullcalendar/resource-timegrid';
 import {AddEditCoursesComponent} from '../../Courses/AddEditCourse/add-edit-courses/add-edit-courses.component';
-import {MatDialog} from '@angular/material/dialog';
+import {MatLegacyDialog as MatDialog} from '@angular/material/legacy-dialog';
 import {AddEditEventComponent} from './AddEditEvent/add-edit-event.component';
 import {LabServiceService} from "../lab-service.service";
 interface Booking {

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CourseDetailsDialogComponent } from '../course-details-dialog/course-details-dialog.component';
-import { MatDialog } from '@angular/material/dialog';
+import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
 import { Router } from '@angular/router';
 import { AddEditCoursesComponent } from '../AddEditCourse/add-edit-courses/add-edit-courses.component';
 import { CoursesService } from '../courses.service';
