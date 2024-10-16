@@ -13,6 +13,7 @@ export class SidebarComponent implements OnInit {
    dropdownVisible: any;
    userName: any;
    userEmail: any;
+   userTypeId: any;
 
 
   constructor(private router: Router) { }
@@ -26,6 +27,7 @@ export class SidebarComponent implements OnInit {
 
       this.userName = `${firstName} ${lastName}`.trim();
       this.userEmail = parsedData.email || 'email@example.com';
+      this.userTypeId = parsedData?.userType?.id;
     }
   }
   closeCallback(e: any): void {

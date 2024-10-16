@@ -19,6 +19,7 @@ import {MembershipComponent} from '../Membership/membership/membership.component
 import {CourseDetailsDialogComponent} from '../Courses/course-details-dialog/course-details-dialog.component';
 import {CourseMainComponent} from "../Courses/course-main/course-main.component";
 import {ProjectsComponent} from "../projects/projects/projects.component";
+import {CardModule} from "primeng/card";
 
 
 const routes: Routes = [
@@ -92,7 +93,8 @@ const routes: Routes = [
         ButtonModule,
         TableModule,
         CalendarModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        CardModule
     ]
 })
 export class AuthModule { }

@@ -47,3 +47,172 @@
 .table-striped tbody tr:nth-of-type(odd) {
   background-color: #f9f9f9;
 }
+/* Navigation Bar Styling */
+/* Main Container Background */
+.main-container {
+  height: 100vh; /* Set the height of the container */
+  background-image: url('/assets/images/profile-bg.png'); /* Change to your background image path */
+  background-size: cover; /* Cover the entire container */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-position: center; /* Center the background image */
+  padding: 20px; /* Add padding to the container */
+  border-radius: 10px; /* Optional: Add rounded corners to the container */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Optional: Add shadow for depth */
+}
+
+/* Profile Sidebar */
+.profile-sidebar {
+  background-color: rgba(255, 255, 255, 0.9); /* Optional: Background color for the sidebar */
+  padding: 20px;
+  border-radius: 10px;
+}
+
+/* Projects Section */
+.projects-section {
+  background-color: rgba(255, 255, 255, 0.9); /* Optional: Background color for the projects section */
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.navbar {
+  background-color: #333;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: #00bcd4;
+}
+
+/* Main Container */
+.main-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100vh;
+}
+
+/* Profile Sidebar Section */
+.profile-sidebar {
+  width: 20%;
+  padding: 20px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  margin: 66px 20px;
+}
+
+.profile-pic {
+  width: 146px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 10px solid #2828c5;
+  margin: -82px 0 8px;
+}
+
+
+.profile-info {
+  text-align: center;
+}
+
+.profile-info h3 {
+  margin: 5px 0;
+  font-size: 20px;
+}
+
+.profile-info p {
+  color: #777;
+  font-size: 14px;
+}
+
+/* Projects Section */
+.projects-section {
+  width: 80%;
+  padding: 20px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.project-card {
+  display: flex;
+  justify-content: center;
+}
+
+.hover-card {
+  position: relative;
+  overflow: hidden;
+}
+
+::ng-deep .p-card{
+  box-shadow: none;
+}
+::ng-deep .p-card .p-card-body {
+  padding: 0;
+}
+/* Image Container for Hover Effect */
+.image-container {
+  position: relative;
+}
+
+.project-image {
+  width: 100%;
+  height: auto;
+  transition: filter 0.3s ease;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.image-container:hover .project-image {
+  filter: blur(4px);
+}
+
+.image-container:hover .overlay {
+  opacity: 1;
+}
+
+/* Project Name Styling */
+.project-name {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Description Styling */
+.description p {
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: center;
+}
