@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {ChangeDetectorRef, Component, ElementRef, OnInit, signal, ViewChild} from '@angular/core';
 import {CoursesService} from '../../Courses/courses.service';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
@@ -6,9 +6,35 @@ import { FullCalendarComponent } from '@fullcalendar/angular';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import resourceTimeGridPlugin from '@fullcalendar/resource-timegrid';
 import {AddEditCoursesComponent} from '../../Courses/AddEditCourse/add-edit-courses/add-edit-courses.component';
-import {MatDialog} from '@angular/material/dialog';
 import {AddEditEventComponent} from './AddEditEvent/add-edit-event.component';
 import {LabServiceService} from '../lab-service.service';
+import {MatDialog} from '@angular/material/dialog';
+import {CalendarOptions, DateSelectArg, EventApi, EventClickArg, EventInput} from '@fullcalendar/core';
+
+
+const TODAY_STR = new Date().toISOString().replace(/T.*$/, ''); // YYYY-MM-DD of today
+
+
+
+export const INITIAL_EVENTS: EventInput[] = [
+  {
+    id: '',
+    title: 'All-day event',
+    start: TODAY_STR
+  },
+  {
+    id: '',
+    title: 'Timed event',
+    start: TODAY_STR + 'T00:00:00',
+    end: TODAY_STR + 'T03:00:00'
+  },
+  {
+    id: '',
+    title: 'Timed event',
+    start: TODAY_STR + 'T12:00:00',
+    end: TODAY_STR + 'T15:00:00'
+  }
+];
 interface Booking {
   lab: string;
   date: Date;
@@ -76,8 +102,99 @@ export class BooklabsComponent implements OnInit {
 //   }
   options: any;
   eventsModel: any;
+  calendarVisible = signal(true);
+  calendarOptions = signal<CalendarOptions>({
+    plugins: [
+      interactionPlugin,
+      dayGridPlugin,
+      timeGridPlugin
+    ],
+    headerToolbar: {
+      left: 'prev,next today',
+      center: 'title',
+      right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+    },
+    initialView: 'dayGridMonth',
+    initialEvents: INITIAL_EVENTS, // alternatively, use the `events` setting to fetch from a feed
+    weekends: true,
+    editable: true,
+    selectable: true,
+    selectMirror: true,
+    dayMaxEvents: true,
+    select: this.handleDateSelect.bind(this),
+    eventClick: this.handleEventClick.bind(this),
+    eventsSet: this.handleEvents.bind(this)
+    /* you can update a remote database when these fire:
+    eventAdd:
+    eventChange:
+    eventRemove:
+    */
+  });
+  currentEvents = signal<EventApi[]>([]);
 
-  constructor(private dialog: MatDialog, private labService: LabServiceService) {
+  constructor(private dialog: MatDialog, private labService: LabServiceService, private changeDetector: ChangeDetectorRef) {
+  }
+  createEventId(this: any) {
+    return String(this.eventGuid++);
+  }
+  handleCalendarToggle() {
+    this.calendarVisible.update((bool) => !bool);
+  }
+
+  handleWeekendsToggle() {
+    this.calendarOptions.update((options) => ({
+      ...options,
+      weekends: !options.weekends,
+    }));
+  }
+
+  handleDateSelect(selectInfo: DateSelectArg) {
+    const event = {
+      start: selectInfo.start,
+      end: selectInfo.end,
+    };
+    const dialogRef = this.dialog.open(AddEditEventComponent, {
+      panelClass: 'tt-dialog',
+      autoFocus: false,
+      width: '1000px',
+      height: 'auto',
+      data: event,
+    });
+    dialogRef.afterClosed().subscribe((calendarEvent: any) => {
+      if (!calendarEvent) {
+        return;
+      }
+      const updatedEvents = this.eventsModel.map((e: any) =>
+        e.id === calendarEvent.id ? { ...calendarEvent } : e
+      );
+      this.eventsModel = [...updatedEvents];
+    });
+    console.log(selectInfo, 'sdasdalsmda');
+    // const title = prompt('Please enter a new title for your event');
+    const calendarApi = selectInfo.view.calendar;
+
+    calendarApi.unselect(); // clear date selection
+
+    // if (title) {
+    //   calendarApi.addEvent({
+    //     id: '',
+    //     title,
+    //     start: selectInfo.startStr,
+    //     end: selectInfo.endStr,
+    //     allDay: selectInfo.allDay
+    //   });
+    // }
+  }
+
+  handleEventClick(clickInfo: EventClickArg) {
+    if (confirm(`Are you sure you want to delete the event '${clickInfo.event.title}'`)) {
+      clickInfo.event.remove();
+    }
+  }
+
+  handleEvents(events: EventApi[]) {
+    this.currentEvents.set(events);
+    this.changeDetector.detectChanges(); // workaround for pressionChangedAfterItHasBeenCheckedError
   }
   ngOnInit() {
     this.getLabsByUserId();
@@ -179,6 +296,7 @@ export class BooklabsComponent implements OnInit {
   //     },
   //   ];
   // }
+   eventGuid: any;
   get yearMonth(): string {
     const dateObj = new Date();
     return dateObj.getUTCFullYear() + '-' + (dateObj.getUTCMonth() + 1);

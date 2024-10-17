@@ -1,11 +1,11 @@
 import {Component, Inject, OnInit, ViewChild} from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 import * as moment from 'moment';
 import {ThemePalette} from '@angular/material/core';
 import {DatePipe} from '@angular/common';
-import {LabServiceService} from "../../lab-service.service";
-import {CoursesService} from "../../../Courses/courses.service";
+import {LabServiceService} from '../../lab-service.service';
+import {CoursesService} from '../../../Courses/courses.service';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 @Component({
     selector: 'app-add-edit-event',
     templateUrl: './add-edit-event.component.html',
