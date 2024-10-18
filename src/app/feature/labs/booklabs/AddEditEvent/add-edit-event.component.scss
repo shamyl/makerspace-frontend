@@ -4,3 +4,27 @@
 ::ng-deep .mat-datepicker-toggle .mat-button-wrapper {
   visibility: hidden; /* Hide the icon but keep the functionality */
 }
+/* Global styles.scss or component-specific CSS */
+::ng-deep .timepicker {
+  z-index: 0 !important;
+  position: absolute !important;
+  top: -263px;
+
+  right: 1px;
+
+}
+
+::ng-deep .timepicker-overlay {
+  position: absolute !Important;
+  top: 10px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: #0000004d;
+  z-index: 2000 !Important;
+  pointer-events: auto;
+}
+::ng-deep .mat-dialog-container {
+  z-index: 1000 !important; /* Dialog box */
+}
+

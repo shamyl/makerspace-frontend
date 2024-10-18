@@ -43,8 +43,8 @@
 <!--&gt;</full-calendar>-->
   <full-calendar *ngIf='calendarVisible()' [options]='calendarOptions()'>
     <ng-template #eventContent let-arg>
-      <b>{{ arg.timeText }}</b>
-      <i>{{ arg.event.title }}</i>
+      <b>{{ arg.timeText +""+ 'm---->' }}</b>
+      <span style="font-weight: bold;">{{ arg.event.title }}</span>
     </ng-template>
   </full-calendar>
 </div>

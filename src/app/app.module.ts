@@ -46,6 +46,7 @@ import {MatOptionModule} from '@angular/material/core';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
+import {NgxMaterialTimepickerModule} from "ngx-material-timepicker";
 
 
 @NgModule({
@@ -100,6 +101,7 @@ import {MatButtonModule} from '@angular/material/button';
     MatTabsModule,
     MatIconModule,
     MatTabGroup,
+    NgxMaterialTimepickerModule,
 
   ],
   providers: [CoursesService, {  provide: HTTP_INTERCEPTORS,  useClass: IntercepterService,  multi: true},

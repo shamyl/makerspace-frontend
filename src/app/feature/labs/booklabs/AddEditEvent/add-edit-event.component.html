@@ -34,33 +34,46 @@
   <!-- Start Date with clock icon -->
   <div class="col-lg-6 col-sm-12">
     <div class="selection-option">
+      <!-- Start Time -->
       <mat-form-field appearance="outline" class="custom-mat-form-field">
-        <mat-label STYLE="margin: 0 11px">Start Date *</mat-label>
-        <mat-icon matPrefix>access_time</mat-icon> <!-- Clock icon -->
-        <input matInput [ngxMatDatetimePicker]="picker2" [disabled]="disabled" [(ngModel)]="course.start">
-        <mat-datepicker-toggle matSuffix [for]="$any(picker2)"></mat-datepicker-toggle>
-        <ngx-mat-datetime-picker #picker2 [showSpinners]="showSpinners" [showSeconds]="showSeconds"
-                                 [stepHour]="stepHour" [stepMinute]="stepMinute" [stepSecond]="stepSecond"
-                                 [touchUi]="touchUi" [color]="color" [enableMeridian]="enableMeridian">
-        </ngx-mat-datetime-picker>
-        <mat-icon matSuffix style="margin: -33px 8px" >arrow_drop_down</mat-icon>
+        <mat-label>Start Time *</mat-label>
+        <input
+          matInput
+          [ngxTimepicker]="startPicker"
+          placeholder="Select Start Time"
+          [(ngModel)]="startTime"
+          (ngModelChange)="onStartTimeSet($event)"
+          readonly>
+        <ngx-material-timepicker
+          #startPicker
+          [appendToInput]="true"
+          class="timepicker">
+        </ngx-material-timepicker>
       </mat-form-field>
     </div>
   </div>
 
   <!-- End Date with clock icon -->
   <div class="col-lg-6 col-sm-12">
-    <div class="selection-option">
+
+    <div class="selection-option" style="margin-top: 20px;">
+      <!-- End Time -->
       <mat-form-field appearance="outline" class="custom-mat-form-field">
-        <mat-label STYLE="margin: 0 11px">End Date *</mat-label>
-        <mat-icon matPrefix STYLE="margin: 0 11px">access_time</mat-icon> <!-- Clock icon -->
-        <input matInput [ngxMatDatetimePicker]="picker3" [disabled]="disabled" [(ngModel)]="course.end">
-        <mat-datepicker-toggle matSuffix [for]="$any(picker3)"></mat-datepicker-toggle>
-        <ngx-mat-datetime-picker #picker3 [showSpinners]="showSpinners" [showSeconds]="showSeconds"
-                                 [stepHour]="stepHour" [stepMinute]="stepMinute" [stepSecond]="stepSecond"
-                                 [touchUi]="touchUi" [color]="color">
-        </ngx-mat-datetime-picker>
-        <mat-icon matSuffix style="margin: -33px 8px" >arrow_drop_down</mat-icon>
+        <mat-label>End Time *</mat-label>
+        <input
+          matInput
+          [ngxTimepicker]="endPicker"
+          placeholder="Select End Time"
+          [(ngModel)]="endTime"
+          [disabled]="!startTime"
+          readonly>
+        <ngx-material-timepicker
+          #endPicker
+          [appendToInput]="true"
+          [min]="minEndTime"
+          [max]="maxEndTime"
+          class="timepicker">
+        </ngx-material-timepicker>
       </mat-form-field>
     </div>
   </div>
