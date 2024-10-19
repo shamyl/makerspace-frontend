@@ -1,17 +1,31 @@
 <div class="row justify-content-center align-items-center h-100">
   <div class="col-12">
     <div class="bg-image d-flex justify-content-center align-items-center">
+
       <div class="welcome-div">
         <!-- Optional Welcome Text -->
-        <!-- <span class="welcome-text">Welcome</span><br> -->
-        <!-- <span class="MakerSpace-text">Sign In To Makerspace</span> -->
+<span style="        position: absolute;
+    top: 253px;
+    font-size: 50px;
+    font-weight: bold;
+    left: 838px;
+    color: #110459c2;">Welcome</span>
+<span style="position: absolute;
+    top: 324px;
+    font-size: 32px;
+    left: 779px;
+    color: rgb(0 0 0 / 33%);
+    font-weight: bold">Sign In To MakerSpace</span>
 
         <!-- Form begins -->
         <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-          <div class="row" style="margin: 0 -53px;">
+          <div class="row" style="margin: 231px -50px -267px;">
             <!-- Username Input Field -->
             <div class="col-lg-12 mb-3" style="margin: -10px 0">
-              <input
+             <img src="assets/images/Icon_Lock.png" style="position: absolute;
+    left: 35%;
+    top: 474px;
+    transform: translateY(-50%);"> <input
                 type="text"
                 pInputText
                 formControlName="username"
@@ -26,7 +40,10 @@
 
             <!-- Password Input Field -->
             <div class="col-lg-12 mb-3" style="margin: 25px 0">
-              <input
+              <img src="assets/images/Icon_Face.png" style="position: absolute;
+    left: 35%;
+    top: 556px;
+    transform: translateY(-50%);"> <input
                 type="password"
                 pInputText
                 formControlName="password"
@@ -51,15 +68,14 @@
 
 
 
-<!--<div class="row">-->
+<!--<div class="row" style="padding: 26px 80px; overflow: hidden;">-->
 <!--  <div class="col-12 d-flex align-items-center justify-content-center">-->
 <!--    <div class="card">-->
 <!--  <div class="row">-->
-<!--    <div class="col-lg-4">-->
-<!--      <img src="assets/images/Robot-login.png" style="padding: 72px 9px">-->
-<!--    </div>-->
-<!--    <div class="col-8">-->
-<!--      <img src="assets/images/Wave_BG.png" style="margin: 25px -541px">-->
+<!--    <div class="col-lg-12">-->
+<!--      <img src="assets/images/Robot-login.png">-->
+
+<!--      <img src="assets/images/Wave_BG.png">-->
 <!--    </div>-->
 <!--  </div>-->
 
