@@ -1,48 +1,64 @@
-<div *ngIf="courseDetails" class="course-detail-container">
-  <div class="course-header">
-    <h2 class="course-title">{{ courseDetails.name }}</h2>
-    <div class="course-enroll">
-      <button mat-raised-button color="primary">Enroll Now</button>
+<div class="page-container">
+  <!-- Background Image -->
+  <div class="background-image"></div>
+
+  <div *ngIf="courseDetails" class="course-detail-container">
+    <div class="row course-header">
+      <div class="col-md-8 course-title-card">
+        <h2 class="course-title">{{ courseDetails.name }}</h2>
+      </div>
     </div>
-  </div>
 
-  <div class="course-content">
-    <mat-tab-group>
-      <mat-tab label="Overview">
-        <div class="tab-content">
-          <p>{{ courseDetails.description }}</p>
-          <p>Duration: {{ courseDetails.duration }} hours</p>
-          <p>Status: {{ courseDetails.status }}</p>
-        </div>
-      </mat-tab>
+    <div class="course-content">
+      <div class="row align-items-center">
+        <!-- Tab Group -->
+        <div class="col-md-10">
+          <mat-tab-group>
+            <mat-tab label="Overview">
+              <div class="tab-content">
+                <p>{{ courseDetails.description }}</p>
+                <p>Duration: {{ courseDetails.duration }} hours</p>
+                <p>Status: {{ courseDetails.status }}</p>
+              </div>
+            </mat-tab>
 
-      <mat-tab label="Course Videos / Materials">
-        <div class="tab-content">
-          <div *ngFor="let video of assesmentDetail.videos" class="video-item">
-            <h3>{{ video.title }}</h3>
-            <iframe  frameborder="0" allowfullscreen></iframe>
-          </div>
-        </div>
-      </mat-tab>
+            <mat-tab label="Course Videos / Materials">
+              <div class="tab-content">
+                <div *ngFor="let video of assesmentDetail.videos" class="video-item">
+                  <h3>{{ video.title }}</h3>
+                  <iframe frameborder="0" allowfullscreen></iframe>
+                </div>
+              </div>
+            </mat-tab>
 
-      <mat-tab label="Activities">
-        <div class="tab-content">
-          <div *ngFor="let activity of assesmentDetail.activities" class="activity-item">
-            <h3>{{ activity.title }}</h3>
-            <iframe [src]="activity.toolUrl" frameborder="0" allowfullscreen></iframe>
-            <p>{{ activity.description }}</p>
-          </div>
-        </div>
-      </mat-tab>
+            <mat-tab label="Activities">
+              <div class="tab-content">
+                <div *ngFor="let activity of assesmentDetail.activities" class="activity-item">
+                  <h3>{{ activity.title }}</h3>
+                  <iframe [src]="activity.toolUrl" frameborder="0" allowfullscreen></iframe>
+                  <p>{{ activity.description }}</p>
+                </div>
+              </div>
+            </mat-tab>
 
-      <mat-tab label="Assessments">
-        <div class="tab-content">
-          <div *ngFor="let assessment of assesmentDetail.assessments" class="assessment-item">
-            <h3>{{ assessment.title }}</h3>
-            <p>{{ assessment.description }}</p>
-          </div>
+            <mat-tab label="Assessments">
+              <div class="tab-content">
+                <div *ngFor="let assessment of assesmentDetail.assessments" class="assessment-item">
+                  <h3>{{ assessment.title }}</h3>
+                  <p>{{ assessment.description }}</p>
+                </div>
+              </div>
+            </mat-tab>
+          </mat-tab-group>
         </div>
-      </mat-tab>
-    </mat-tab-group>
+
+        <!-- Enroll Button Next to Tabs -->
+        <div class="col-md-2 d-flex justify-content-end">
+          <button mat-raised-button color="primary" class="enroll-button">
+            Enroll Now
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
