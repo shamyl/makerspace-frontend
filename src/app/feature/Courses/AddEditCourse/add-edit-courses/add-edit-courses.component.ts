@@ -1,6 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { CoursesService } from '../../courses.service';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
+import * as moment from "moment/moment";
+import {ThemePalette} from "@angular/material/core";
 
 @Component({
     selector: 'app-add-edit-courses',
@@ -11,6 +13,21 @@ export class AddEditCoursesComponent implements OnInit {
     course: any = {};
     timePeriodList: any;
     status: any;
+  public date: moment.Moment | undefined;
+  public disabled = false;
+  public showSpinners = true;
+  public showSeconds = false;
+  public touchUi = false;
+  public enableMeridian = false;
+  public stepHour = 1;
+  public stepMinute = 1;
+  public stepSecond = 1;
+  public color: ThemePalette = 'primary';
+  labList: any;
+  startTime: any;
+  endTime: any;
+  minEndTime: any;
+  maxEndTime: any;
 
     constructor(
         public dialogRef: MatDialogRef<AddEditCoursesComponent>,

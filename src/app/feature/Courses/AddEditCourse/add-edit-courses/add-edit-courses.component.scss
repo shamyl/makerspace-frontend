@@ -4,3 +4,20 @@
 ::ng-deep .mat-mdc-form-field{
   width: 100% !important;
 }
+::ng-deep .mat-calendar {
+  background-color: white !important; /* Ensure the calendar background is white */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Optional shadow for better visibility */
+  border-radius: 8px; /* Optional: Smooth the corners */
+}
+
+::ng-deep .mat-calendar-body-cell {
+  background-color: transparent; /* Ensure individual date cells are transparent */
+}
+
+::ng-deep .mat-calendar-body-cell:hover {
+  background-color: rgba(0, 0, 0, 0.04); /* Optional hover effect */
+}
+
+::ng-deep .mat-calendar-content {
+  background-color: white !important; /* Ensure the main content area is also white */
+}
