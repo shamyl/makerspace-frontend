@@ -17,6 +17,9 @@ export class CoursesService {
   getTimePeriod(): Observable<any> {
     return this.http.get<any>(`${this.BASEURL}course/getTimePeriodList`);
   }
+  getUserById(): Observable<any> {
+    return this.http.get<any>(`${this.BASEURL}user/type`);
+  }
   getStatus(): Observable<any> {
     return this.http.get<any>(`${this.BASEURL}course/getCourseStatus`);
   }
@@ -28,6 +31,9 @@ export class CoursesService {
   }
   addCourse(params: any): Observable<any[]> {
     return this.http.post<any[]>(`${this.BASEURL}course/save`, params);
+  }
+  addUser(params: any): Observable<any[]> {
+    return this.http.post<any[]>(`${this.BASEURL}user/save`, params);
   }
   update(params: any): Observable<any[]> {
     return this.http.put<any[]>(`${this.BASEURL}course/update`, params);

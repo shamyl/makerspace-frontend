@@ -1,3 +1,4 @@
+/* Background Image Styling */
 .bg-image {
   height: 86vh;
   width: 100%;
@@ -5,41 +6,47 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  position: relative; /* To position the text inside it */
+  position: relative; /* Allows absolute elements to align inside it */
 }
 
+/* Centering Welcome Text */
 .welcome-div {
   position: absolute;
   top: 18%;
-  left: 49%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
 }
 
 .welcome-text {
-  transform: translate(-50%, -50%);
   font-size: 39px;
   color: #495057;
   font-weight: bold;
-  font-family: system-ui;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .MakerSpace-text {
   white-space: nowrap;
-  transform: translate(-50%, -50%);
   font-size: 26px;
   color: #49505A;
   font-weight: bold;
-  font-family: system-ui;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   position: absolute;
   left: 83px;
   top: 82px;
 }
 
-::ng-deep .p-inputtext {
+/* Input Field Styling (PrimeNG and Material) */
+::ng-deep .p-inputtext, ::ng-deep input[matInput] {
   height: 40px;
   width: 100%;
   border-radius: 5px;
+  padding: 0 10px;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
 }
 
+/* Sign-in Text Position */
 .span-signin {
   position: absolute;
   top: -149px;
@@ -47,12 +54,22 @@
   font-size: 25px;
   color: white;
   width: 76px;
+  cursor: pointer;
 }
-.signup-span{
+
+/* Signup Button Styling */
+.signup-span {
   border: 1px solid #ff6000;
   padding: 14px 82px;
   background: #ff6000;
   border-radius: 5px;
   color: white;
   margin: 27px 74px;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.signup-span:hover {
+  background: #e65500;
 }

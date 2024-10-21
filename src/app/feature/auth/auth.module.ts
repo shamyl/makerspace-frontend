@@ -20,6 +20,11 @@ import {CourseDetailsDialogComponent} from '../Courses/course-details-dialog/cou
 import {CourseMainComponent} from "../Courses/course-main/course-main.component";
 import {ProjectsComponent} from "../projects/projects/projects.component";
 import {CardModule} from "primeng/card";
+import {MatFormField, MatLabel} from "@angular/material/form-field";
+import {MatOption} from "@angular/material/autocomplete";
+import {MatSelect} from "@angular/material/select";
+import {MatInput} from "@angular/material/input";
+import {MatButton} from "@angular/material/button";
 
 
 const routes: Routes = [
@@ -58,6 +63,9 @@ const routes: Routes = [
       }, {
         path: 'adminC',
         component: CoursesComponent,
+      },{
+        path: 'adminC',
+        component: CoursesComponent,
       },
       {
         path: 'booklabs',
@@ -84,17 +92,23 @@ const routes: Routes = [
     SignupComponent,
     ProfileComponent
   ],
-    imports: [
-        CommonModule,
-        RouterModule.forChild(routes),
-        InputTextModule,
-        AvatarModule,
-        FormsModule,
-        ButtonModule,
-        TableModule,
-        CalendarModule,
-        ReactiveFormsModule,
-        CardModule
-    ]
+  imports: [
+    CommonModule,
+    RouterModule.forChild(routes),
+    InputTextModule,
+    AvatarModule,
+    FormsModule,
+    ButtonModule,
+    TableModule,
+    CalendarModule,
+    ReactiveFormsModule,
+    CardModule,
+    MatFormField,
+    MatLabel,
+    MatOption,
+    MatSelect,
+    MatInput,
+    MatButton
+  ]
 })
 export class AuthModule { }

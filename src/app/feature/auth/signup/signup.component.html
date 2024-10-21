@@ -2,8 +2,8 @@
   <div class="col-12">
     <div class="bg-image">
       <div class="row">
-        <div class="col-12 d-flex align-items-center justify-content-center  mt-3">
-          <span style="color: #636e70; font-size: 34px;font-weight: 500;">
+        <div class="col-12 d-flex align-items-center justify-content-center mt-3">
+          <span style="color: #636e70; font-size: 34px; font-weight: 500;">
             SignUp for Makerspace
           </span>
         </div>
@@ -13,33 +13,64 @@
           <img src="assets/images/Robot.png" style="height: 382px; margin-top: 97px">
         </div>
         <div class="col-lg-8">
-          <div class="row">
-            <div class="col-6" style="padding: 23px;display: flex; align-items: center;justify-content: space-between;">
-              <img src="assets/images/user.png" style="height: 32px; margin: 0 5px 0 -3px;">
-              <input type="text" placeholder="Enter First Name" pInputText/>
+          <form>
+            <div class="row">
+              <!-- First Name -->
+              <div class="col-6" style="padding: 23px;">
+                <span class="span-inp">First Name</span>
+                <mat-form-field appearance="outline" class="w-100">
+                  <input matInput type="text" placeholder="Enter First Name" [(ngModel)]="userList.firstName" name="firstName">
+                </mat-form-field>
+              </div>
+
+              <!-- Last Name -->
+              <div class="col-6" style="padding: 23px;">
+                <span class="span-inp">Last Name</span>
+                <mat-form-field appearance="outline" class="w-100">
+                  <input matInput type="text" placeholder="Enter Last Name" [(ngModel)]="userList.lastName" name="lastName">
+                </mat-form-field>
+              </div>
+
+              <!-- Email -->
+              <div class="col-6" style="padding: 23px;">
+                <span class="span-inp">Email</span>
+                <mat-form-field appearance="outline" class="w-100">
+                  <input matInput type="email" placeholder="Enter Email" [(ngModel)]="userList.email" name="email">
+                </mat-form-field>
+              </div>
+
+              <!-- Password -->
+              <div class="col-6" style="padding: 23px;">
+                <span class="span-inp">Password</span>
+                <mat-form-field appearance="outline" class="w-100">
+                  <input matInput type="password" placeholder="Enter Password" [(ngModel)]="userList.password" name="password">
+                </mat-form-field>
+              </div>
+
+              <!-- User Type -->
+              <div class="col-6" style="padding: 23px;">
+                <span class="span-inp">User Type</span>
+                <mat-form-field appearance="outline" class="w-100">
+<!--                  <mat-label>User Type</mat-label>-->
+                  <mat-select [(ngModel)]="userList.userType" name="userType" placeholder="User Type" required>
+                    <mat-option *ngFor="let user of userTypeList" [value]="user.id">
+                      {{ user.name }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
             </div>
-            <div class="col-6" style="padding: 23px;display: flex; align-items: center;justify-content: space-between;">
-              <img src="assets/images/user.png" style="height: 32px; margin: 0 5px 0 -3px;">
-              <input type="text" placeholder="Enter Last Name" pInputText/>
+
+            <div class="row">
+              <div class="col d-flex align-items-center justify-content-end" style="margin: 0 45px;">
+                <button mat-raised-button color="primary" (click)="signUp()" style="padding: 5px 26px;
+    background: orange;
+    color: white;">
+                  Sign Up
+                </button>
+              </div>
             </div>
-            <div class="col-6" style="padding: 23px;display: flex; align-items: center;justify-content: space-between;">
-              <img src="assets/images/email.png" style="height: 32px; margin: 0 5px 0 -3px;">
-              <input type="text" placeholder="Enter Email" pInputText/>
-            </div>
-            <div class="col-6" style="padding: 23px;display: flex; align-items: center;justify-content: space-between;">
-              <img src="assets/images/padlock.png" style="height: 32px; margin: 0 5px 0 -3px;">
-              <input type="password" placeholder="Enter Password" pInputText/>
-            </div>
-            <div class="col-6" style="padding: 23px;display: flex; align-items: center;justify-content: space-between;">
-              <img src="assets/images/chat.png" style="height: 32px; margin: 0 5px 0 -3px;">
-              <input type="text" placeholder="Enter User Type" pInputText/>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col d-flex align-items-center justify-content-end">
-              <span class="signup-span">Sign Up</span>
-            </div>
-          </div>
+          </form>
         </div>
       </div>
     </div>
