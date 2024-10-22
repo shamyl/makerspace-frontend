@@ -6,6 +6,21 @@
 .p-datatable {
   width: 100%;
 }
+@media (max-width: 1024px) {
+  /* Adjust padding and margins */
+  .row {
+    padding: 20px 10px;
+  }
+  .col-6 {
+    padding: 10px;
+  }
+  ::ng-deep .btn-primary {
+    font-size: 14px; /* Adjust button size for smaller screens */
+  }
+  ::ng-deep .pi {
+    font-size: 18px; /* Adjust icon size */
+  }
+}
 //::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline-thick {
 //  color: rgb(88 91 98);
 //}

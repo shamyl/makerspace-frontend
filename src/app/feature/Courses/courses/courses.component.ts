@@ -33,14 +33,14 @@ export class CoursesComponent implements OnInit {
   ngOnInit(): void {
     this.getCourses();
     this.headersTable = [
-      { field: 'action', header: 'Action' },
-      { field: 'courseVenue', header: 'Course Venue' },
-      { field: 'createdDate', header: 'Created Date' },
-      { field: 'description', header: 'Description' },
-      { field: 'endDateTime', header: 'End Date' },
-      { field: 'isActive', header: 'Is Active' },
+      { field: 'action', header: 'Action' ,  width: '120px'},
       { field: 'name', header: 'Name' },
+      { field: 'courseVenue', header: 'Course Venue' },
+      { field: 'description', header: 'Description' },
+      { field: 'createdDate', header: 'Created Date' },
+      { field: 'isActive', header: 'Active' },
       { field: 'startDateTime', header: 'Start Date' },
+      { field: 'endDateTime', header: 'End Date' },
       { field: 'status', header: 'Status' },
       { field: 'timePeriod', header: 'Time Period' }
     ];

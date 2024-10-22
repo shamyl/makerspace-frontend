@@ -6,38 +6,27 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  position: relative; /* Allows absolute elements to align inside it */
+  position: relative;
 }
 
-/* Centering Welcome Text */
-.welcome-div {
-  position: absolute;
-  top: 18%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
+/* Title Text Styling */
+.header-text {
+  color: #636e70;
+  font-size: 34px;
+  font-weight: 500;
 }
 
-.welcome-text {
-  font-size: 39px;
-  color: #495057;
-  font-weight: bold;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+/* Robot Image Styling */
+.robot-img {
+  height: auto;
+  max-height: 350px;
+  width: 100%;
+  object-fit: contain;
+  margin-top: 20px;
 }
 
-.MakerSpace-text {
-  white-space: nowrap;
-  font-size: 26px;
-  color: #49505A;
-  font-weight: bold;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  position: absolute;
-  left: 83px;
-  top: 82px;
-}
-
-/* Input Field Styling (PrimeNG and Material) */
-::ng-deep .p-inputtext, ::ng-deep input[matInput] {
+/* Input Field Styling */
+::ng-deep input[matInput], ::ng-deep .p-inputtext {
   height: 40px;
   width: 100%;
   border-radius: 5px;
@@ -46,30 +35,33 @@
   box-sizing: border-box;
 }
 
-/* Sign-in Text Position */
-.span-signin {
-  position: absolute;
-  top: -149px;
-  right: 11px;
-  font-size: 25px;
-  color: white;
-  width: 76px;
-  cursor: pointer;
-}
-
 /* Signup Button Styling */
-.signup-span {
-  border: 1px solid #ff6000;
-  padding: 14px 82px;
-  background: #ff6000;
-  border-radius: 5px;
+.signup-btn {
+  padding: 5px 26px;
+  background-color: orange;
   color: white;
-  margin: 27px 74px;
-  text-align: center;
-  cursor: pointer;
   transition: background 0.3s ease;
 }
 
-.signup-span:hover {
-  background: #e65500;
+.signup-btn:hover {
+  background-color: #e65500;
+}
+
+/* Input Label Styling */
+.span-inp {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+/* Adjust Padding for Smaller Screens */
+@media (max-width: 768px) {
+  .bg-image {
+    height: auto;
+    padding: 20px;
+  }
+
+  .robot-img {
+    margin-top: 0;
+  }
 }

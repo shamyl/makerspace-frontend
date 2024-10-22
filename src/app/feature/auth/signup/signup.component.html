@@ -1,57 +1,66 @@
-<div class="row" style="padding: 41px">
+<div class="row" style="padding: 0 39px 0">
   <div class="col-12">
-    <div class="bg-image">
+    <!-- Back Arrow Icon with Router Link -->
+    <a [routerLink]="['/dashboard']" style="text-decoration: none;">
+      <span style="border: 1px solid #3661eb; border-radius: 3px; background: #3661eb; padding: 2px 8px "><i class="pi pi-arrow-left" style="font-size: 15px; color: white;"></i></span>
+      <span style="font-size: 20px; font-weight: bold; margin: 0 16px">Add User </span>
+    </a>
+  </div>
+</div>
+<div class="container-fluid" style="padding: 10px 41px">
+  <div class="row">
+    <div class="col-12 bg-image">
+      <!-- Title Section -->
       <div class="row">
         <div class="col-12 d-flex align-items-center justify-content-center mt-3">
-          <span style="color: #636e70; font-size: 34px; font-weight: 500;">
+          <span class="header-text">
             Add User for Makerspace
           </span>
         </div>
       </div>
-      <div class="row" style="padding: 150px 14px">
-        <div class="col-4">
-          <img src="assets/images/Robot.png" style="height: 382px; margin-top: 97px">
+
+      <!-- Form Section -->
+      <div class="row align-items-center" style="padding: 50px 14px">
+        <!-- Robot Image -->
+        <div class="col-lg-4 text-center mb-4 mb-lg-0">
+          <img src="assets/images/Robot.png" class="robot-img">
         </div>
+
+        <!-- User Form -->
         <div class="col-lg-8">
           <form>
             <div class="row">
-              <!-- First Name -->
-              <div class="col-6" style="padding: 23px;">
+              <div class="col-md-6 mb-3">
                 <span class="span-inp">First Name</span>
                 <mat-form-field appearance="outline" class="w-100">
                   <input matInput type="text" placeholder="Enter First Name" [(ngModel)]="userList.firstName" name="firstName">
                 </mat-form-field>
               </div>
 
-              <!-- Last Name -->
-              <div class="col-6" style="padding: 23px;">
+              <div class="col-md-6 mb-3">
                 <span class="span-inp">Last Name</span>
                 <mat-form-field appearance="outline" class="w-100">
                   <input matInput type="text" placeholder="Enter Last Name" [(ngModel)]="userList.lastName" name="lastName">
                 </mat-form-field>
               </div>
 
-              <!-- Email -->
-              <div class="col-6" style="padding: 23px;">
+              <div class="col-md-6 mb-3">
                 <span class="span-inp">Email</span>
                 <mat-form-field appearance="outline" class="w-100">
                   <input matInput type="email" placeholder="Enter Email" [(ngModel)]="userList.email" name="email">
                 </mat-form-field>
               </div>
 
-              <!-- Password -->
-              <div class="col-6" style="padding: 23px;">
+              <div class="col-md-6 mb-3">
                 <span class="span-inp">Password</span>
                 <mat-form-field appearance="outline" class="w-100">
                   <input matInput type="password" placeholder="Enter Password" [(ngModel)]="userList.password" name="password">
                 </mat-form-field>
               </div>
 
-              <!-- User Type -->
-              <div class="col-6" style="padding: 23px;">
+              <div class="col-md-6 mb-3">
                 <span class="span-inp">User Type</span>
                 <mat-form-field appearance="outline" class="w-100">
-<!--                  <mat-label>User Type</mat-label>-->
                   <mat-select [(ngModel)]="userList.userType" name="userType" placeholder="User Type" required>
                     <mat-option *ngFor="let user of userTypeList" [value]="user.id">
                       {{ user.name }}
@@ -62,10 +71,8 @@
             </div>
 
             <div class="row">
-              <div class="col d-flex align-items-center justify-content-end" style="margin: 0 45px;">
-                <button mat-raised-button color="primary" (click)="signUp()" style="padding: 5px 26px;
-    background: orange;
-    color: white;">
+              <div class="col d-flex justify-content-end" style="padding-right: 45px;">
+                <button mat-raised-button color="primary" (click)="signUp()" class="signup-btn">
                   Sign Up
                 </button>
               </div>

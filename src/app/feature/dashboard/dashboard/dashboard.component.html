@@ -2,24 +2,11 @@
   <!-- First Row -->
   <div class="row">
     <div class="col-12">
-      <div class=" mt-3">
-        <div class="row">
-          <div class="col-md-12 col-sm-12 col-lg-12">
-            <span style="position: absolute;
-    top: 260px;
-    left: 121px;
-    font-size: 60px;
-    color: #2b6ca4;
-    font-weight: bold;">Discover New Learning Experience </span>
-            <span style="position: absolute;
-    top: 338px;
-    font-size: 47px;
-    left: 158px;
-    font-weight: bold;
-    line-height: 52px;
-    color: #2b6ca4">
-    FREE FALL<br>INTO THE FUTURE
-</span>
+      <div class="mt-3">
+        <div class="row position-relative">
+          <div class="col-12">
+            <span class="heading-main">Discover New Learning Experience</span>
+            <span class="heading-sub">FREE FALL<br>INTO THE FUTURE</span>
             <img src="assets/images/dashboard-bg.png" class="img-fluid" style="width: 100%;">
             <img src="assets/images/Astronaut.png" class="float-image">
           </div>
@@ -31,71 +18,57 @@
   <!-- Second Row -->
   <div class="row my-4" style="padding: 5px 27px;">
     <div class="col-12">
-
-
-        <!-- Icon Cards Row -->
-        <div class="row text-center">
-          <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-            <div class="card p-3" style="border-radius: 15px;background: #ccdeed" routerLink="/courses">
-              <img src="assets/images/Explore_01.png" class="img-fluid mb-2">
-              <span style="font-size: 28px; font-weight: bold;">EXPLORE COURSES</span>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-            <div class="card p-3" style="border-radius: 15px;background: #ccdeed" routerLink="/booklabs">
-              <img src="assets/images/BookLab_01.png" class="img-fluid mb-2">
-              <span style="font-size: 28px; font-weight: bold;">BOOK A LAB</span>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-            <div class="card p-3" style="border-radius: 15px;background: #ccdeed" routerLink="/Membership">
-              <img src="assets/images/Join_01%20(1).png" class="img-fluid mb-2">
-              <span style="font-size: 28px; font-weight: bold;">JOIN MEMBERSHIP</span>
-            </div>
+      <div class="row text-center">
+        <!-- Explore Courses Card -->
+        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+          <div class="card p-3 explore-card" routerLink="/courses">
+            <img src="assets/images/Explore_01.png" class="img-fluid mb-2">
+            <span class="card-title">EXPLORE COURSES</span>
           </div>
         </div>
 
-        <!-- Text Row -->
-        <div class="row text-center">
-          <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-            <div>
-              <span style="font-weight: bold"> Browse through the diverse<br>
-              range of courses designed<br>
-              to enhanced skill and<br></span>
-              <span style="font-weight: bold;">knowledge</span>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-            <div>
-            <span style="font-weight: bold"> Secure your spot in<br>
-              our state-of-the-art<br>
-              labs for hand on learning<br> </span>
-              <span style="font-weight: bold;"> Sessions</span>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-            <div>
-            <span style="font-weight: bold"> Become a member to get<br>
-              exclusive access to premium<br> </span>
-              <span style="font-weight: bold;">feature and content</span>
-            </div>
+        <!-- Book a Lab Card -->
+        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+          <div class="card p-3 explore-card" routerLink="/booklabs">
+            <img src="assets/images/BookLab_01.png" class="img-fluid mb-2">
+            <span class="card-title">BOOK A LAB</span>
           </div>
         </div>
 
-        <!-- Learn More / Book Now / Sign Up Row -->
-        <div class="row text-center">
-          <div class="col-lg-4 col-md-6 col-sm-12 mb-4" style="margin: -12px 0;">
-            <span class="span-last-head">Learn more</span>
-          </div>
-          <div class="col-lg-4 col-md-6 col-sm-12 mb-4" style="margin: -12px 0;">
-            <span class="span-last-head">Book now</span>
-          </div>
-          <div class="col-lg-4 col-md-6 col-sm-12 mb-4" style="margin: -37px 0;">
-            <span class="span-last-head" routerLink="/signup">Sign Up</span>
+        <!-- Join Membership Card -->
+        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+          <div class="card p-3 explore-card" routerLink="/Membership">
+            <img src="assets/images/Join_01%20(1).png" class="img-fluid mb-2">
+            <span class="card-title">JOIN MEMBERSHIP</span>
           </div>
         </div>
+      </div>
 
+      <!-- Descriptive Text Row -->
+      <div class="row text-center">
+        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+          <span class="text-bold">Browse through the diverse<br>range of courses designed<br>to enhance skill and knowledge.</span>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+          <span class="text-bold">Secure your spot in our<br>state-of-the-art labs for<br>hands-on learning sessions.</span>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+          <span class="text-bold">Become a member to get<br>exclusive access to premium<br>features and content.</span>
+        </div>
+      </div>
+
+      <!-- Call-to-Action Row -->
+      <div class="row text-center">
+        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+          <span class="span-last-head">Learn more</span>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+          <span class="span-last-head">Book now</span>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+          <span class="span-last-head" routerLink="/signup">Sign Up</span>
+        </div>
       </div>
     </div>
   </div>
-
+</div>

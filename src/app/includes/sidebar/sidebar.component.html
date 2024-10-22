@@ -1,57 +1,36 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-custom">
   <div class="container" style="display:contents;">
     <!-- Navbar Brand -->
-    <a class="navbar-brand" href="#"><img src="assets/images/img.png" alt=""></a>
+    <a class="navbar-brand" href="#">
+      <img src="assets/images/img.png" alt="">
+    </a>
 
-    <!-- Navbar Toggle Button for mobile view -->
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <!-- Navbar Toggle Button for Mobile View -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <!-- Navbar Content -->
+    <!-- Navbar Links -->
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav mx-auto"> <!-- Center Dashboard, Courses, Membership -->
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/dashboard">Dashboard</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/courses">Courses</a>
-        </li>
-        <li class="nav-item" *ngIf="userTypeId === 1 ">
-          <a class="nav-link" routerLink="/adminC">Courses Creation</a>
-        </li>
-        <li class="nav-item" *ngIf="userTypeId === 1 ">
-          <a class="nav-link" routerLink="/users">User</a>
-        </li>
-        <li class="nav-item" *ngIf="userTypeId === 1 ">
-          <a class="nav-link" routerLink="/Labs">Labs</a>
-        </li>
-<!--        <li class="nav-item">-->
-<!--          <a class="nav-link" routerLink="/Membership">Membership</a>-->
-<!--        </li>-->
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/booklabs">Book Lab</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/Projects">Projects</a>
-        </li>
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item"><a class="nav-link" routerLink="/dashboard">Dashboard</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/courses">Courses</a></li>
+        <li class="nav-item" *ngIf="userTypeId === 1"><a class="nav-link" routerLink="/adminC">Courses Creation</a></li>
+        <li class="nav-item" *ngIf="userTypeId === 1"><a class="nav-link" routerLink="/users">User</a></li>
+        <li class="nav-item" *ngIf="userTypeId === 1"><a class="nav-link" routerLink="/Labs">Labs</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/booklabs">Book Lab</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/Projects">Projects</a></li>
       </ul>
     </div>
 
-    <!-- Profile Section with Dropdown -->
-    <div class="profile-container" style="">
+    <!-- Profile Section -->
+    <div class="profile-container">
       <div class="profile-info" (click)="toggleDropdown()" style="cursor: pointer;">
-        <span style="border: 1px solid #97929270;
-    padding: 2px 0 0 16px;
-    background: #97929270;
-    border-radius: 10px;">
-        <span class="profile-name">{{userName}}</span>
-        <img src="assets/images/user.png" alt="User Icon" style=" height: 27px;
-    margin: 2px;
-    position: absolute;
-    right: 0;
-    top: -3px;">
-          </span>
+        <span class="profile-name-container">
+          <span class="profile-name">{{userName}}</span>
+          <img src="assets/images/user.png" alt="User Icon">
+        </span>
       </div>
 
       <!-- Dropdown Menu -->
@@ -62,51 +41,3 @@
     </div>
   </div>
 </nav>
-
-
-<!--<p-sidebar #sidebarRef [(visible)]="visible">-->
-<!--  <ng-template pTemplate="headless">-->
-<!--    <div class="d-flex flex-column h-full">-->
-<!--      &lt;!&ndash; Logo Section &ndash;&gt;-->
-<!--      <div class="d-flex align-items-center justify-content-between pt-3 flex-shrink-0">-->
-<!--        <span class="inline-flex align-items-center gap-2" routerLink="/dashboard">-->
-<!--          <svg width="33" height="35" viewBox="0 0 33 35" fill="none" xmlns="http://www.w3.org/2000/svg" class="block mx-auto">-->
-<!--            &lt;!&ndash; SVG content for logo &ndash;&gt;-->
-<!--            <path d="M15.1934 0V0V0L0.0391235 5.38288L2.35052 25.3417L15.1934 32.427V32.427V32.427L28.0364 25.3417L30.3478 5.38288L15.1934 0Z" fill="var(&#45;&#45;primary-color)" />-->
-<!--            &lt;!&ndash; Additional logo paths &ndash;&gt;-->
-<!--          </svg>-->
-<!--        </span>-->
-<!--        <span style="padding: 0 0 13px 0" (click)="closeCallback(false)">-->
-<!--          <i class="pi pi-times"></i>-->
-<!--        </span>-->
-<!--      </div>-->
-
-<!--      &lt;!&ndash; Menu Items Section &ndash;&gt;-->
-<!--      <div class="menu-items d-flex flex-column" style="padding: 124px 0">-->
-<!--        <a pRipple class="d-flex align-items-center cursor-pointer p-3 border-round text-700 hover:surface-100 transition-duration-150" routerLink="/courses">-->
-<!--          <i class="pi pi-book mr-2" style="color: gray"></i>-->
-<!--          <span class="font-medium" style="color: gray">Courses</span>-->
-<!--        </a>-->
-<!--        <a pRipple class="d-flex align-items-center cursor-pointer p-3 border-round text-700 hover:surface-100 transition-duration-150" routerLink="/booklabs">-->
-<!--          <i class="pi pi-briefcase mr-2" style="color: gray"></i>-->
-<!--          <span class="font-medium" style="color: gray">Labs</span>-->
-<!--        </a>-->
-<!--        <a pRipple class="d-flex align-items-center cursor-pointer p-3 border-round text-700 hover:surface-100 transition-duration-150" routerLink="/Membership">-->
-<!--          <i class="pi pi-id-card mr-2" style="color: gray"></i>-->
-<!--          <span class="font-medium" style="color: gray">Memberships</span>-->
-<!--        </a>-->
-<!--      </div>-->
-
-<!--      &lt;!&ndash; Profile Section at the bottom &ndash;&gt;-->
-<!--      <div class="mt-auto d-flex align-items-center p-3 border-top-1 surface-border" routerLink="/profile">-->
-<!--        <img src="assets/images/chat.png" alt="Profile Avatar" class="border-circle mr-2" style="    width: 56px;-->
-<!--    height: 61px;" />-->
-<!--        <div>-->
-<!--          <span class="font-medium" style="color: gray; font-size: 27px">John Doe</span>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </ng-template>-->
-<!--</p-sidebar>-->
-
-<!--<p-button (onClick)="visible = true" icon="pi pi-list" class="sidebar-btn"></p-button>-->

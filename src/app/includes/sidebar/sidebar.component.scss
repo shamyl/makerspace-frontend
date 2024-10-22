@@ -1,62 +1,13 @@
-.card{
-  width: 100%;
-  border: 1px solid #1f3557;
-  height: 100%;
-}
-.span-last-head{
-  font-size: 16px;
-  font-weight: 600;
-  color: #ff9900;
-}
-.centered-word {
-  text-align: center;
-}
-.profile-container {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-}
-
-.profile-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: #ddd;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-  color: #333;
-  margin-right: 10px;
-}
-
-.profile-info {
-  display: flex;
-  align-items: center;
-}
-
-.profile-name {
-  font-size: 16px;
-  font-weight: bold;
-  color: white;
-  margin: 0 36px;
-}
-
 /* Navbar Custom Styling */
 .navbar-custom {
-  position: fixed; /* Makes the navbar stick at the top */
+  position: fixed;
   top: 0;
   left: 0;
-  width: 100%; /* Ensures the navbar spans the full width */
-  z-index: 1000; /* Places the navbar on top of the content */
+  width: 100%;
   padding: 10px 20px;
-  background-color: #1f3557 !important; /* Custom background color */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow for effect */
-}
-
-/* Push the content below the fixed navbar */
-.content-wrapper {
-  padding-top: 80px; /* Add padding equal to navbar height */
+  background-color: #1f3557 !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
 }
 
 .navbar-brand img {
@@ -65,7 +16,7 @@
 }
 
 .navbar-nav .nav-link {
-  font-size: 1.2em;
+  font-size: 1.2rem;
   margin-left: 20px;
   color: white;
 }
@@ -74,11 +25,38 @@
   color: #007bff;
 }
 
+/* Profile Styling */
 .profile-container {
-  position: relative;
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
+.profile-name-container {
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  background: #97929270;
+  border: 1px solid #97929270;
+  border-radius: 10px;
+  position: relative;
+}
+
+.profile-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  margin-right: 27px;}
+
+.profile-name-container img {
+  height: 23px;
+  position: absolute;
+  right: 5px;
+  top: 6px;
+
+}
+
+/* Dropdown Styling */
 .dropdown-menu {
   display: none;
   position: absolute;
@@ -101,6 +79,58 @@
   background-color: #f1f1f1;
 }
 
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+  .navbar-brand img {
+    height: 30px;
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 1rem;
+    margin-left: 10px;
+  }
+
+  .profile-name-container {
+    padding: 3px 8px;
+  }
+
+  .profile-name {
+    font-size: 14px;
+  }
+
+  .profile-name-container img{
+    height: 19px;
+    position: absolute;
+    right: 8px;
+    top: 3px;
+  }
+}
+@media (max-width: 1214px) {
+  .navbar-brand img {
+    height: 30px;
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 1rem;
+    margin-left: 10px;
+  }
+
+  .profile-name-container {
+    padding: 3px 8px;
+  }
+
+  .profile-name {
+    font-size: 14px;
+  }
+
+  .profile-name-container img{
+    height: 19px;
+    position: absolute;
+    right: 8px;
+    top: 3px;
+  }
+}
+
 @media (max-width: 768px) {
   .navbar-nav {
     justify-content: center;
@@ -109,28 +139,8 @@
   .profile-container {
     margin-top: 10px;
   }
-}
 
-
-.dropdown-menu {
-  display: none;
-  position: absolute;
-  right: 0;
-  background-color: white;
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-  min-width: 160px;
-}
-
-.dropdown-menu.show {
-  display: block; /* Show the dropdown when class 'show' is applied */
-}
-
-.dropdown-item {
-  padding: 10px 20px;
-  cursor: pointer;
-  text-align: left;
-}
-
-.dropdown-item:hover {
-  background-color: #f1f1f1;
+  .profile-name {
+    margin-right: 5px;
+  }
 }

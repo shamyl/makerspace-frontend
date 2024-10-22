@@ -1,6 +1,7 @@
+/* Background Image Styling */
 .bg-image {
-  height: 100vh;
-  width: 100vw;
+  height: 82vh;
+  width: 91%;
   background-image: url("/assets/images/login-bg.png");
   background-repeat: no-repeat;
   background-position: center;
@@ -11,44 +12,117 @@
   overflow: hidden;
 }
 
+/* Media Query: For screens 1024px or less */
+@media (max-width: 1024px) {
+  .bg-image {
+    height: 100vh;
+    width: 100%; /* Full width */
+  }
+}
+
+/* Welcome Div Styling */
 .welcome-div {
-  padding: 30px;
+  padding: 10px;
   border-radius: 10px;
   max-width: 400px;
+  width: 90%; /* Allows scaling on smaller screens */
+  text-align: center; /* Center align content */
 }
 
-::ng-deep .p-inputtext {
+/* Welcome Text Styling */
+.welcome-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0; /* Remove unnecessary space */
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  margin-top: 5px; /* Reduced spacing between welcome and subtitle */
+  margin-bottom: 15px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+/* Input Icon Styling */
+.input-icon {
+  position: relative;
+}
+
+.input-icon img {
+  position: absolute;
+  left: 1px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 35px;
+  height: 35px;
+}
+
+.form-control {
+  padding-left: 40px;
   height: 40px;
-  width: 100%;
   border-radius: 5px;
+  margin-bottom: 10px; /* Reduce spacing between input fields */
 }
-
-/* Center button within form */
-.button-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px; /* Adjust spacing if needed */
+.mgf{
+  margin:41px 0 ;
 }
-
+/* Sign-In Button Styling */
 .span-signin {
   border: 1px solid #ccced4;
   background: #ccced4;
-  padding: 18px 80px;
   color: white;
-  font-size: 26px;
+  font-size: 1.5rem;
+  padding: 15px 50px;
   border-radius: 5px;
   cursor: pointer;
-  margin: 308px 47px 111px;
+  width: 100%; /* Full width */
+  margin-top: 30px; /* Reduced margin to move button closer to input fields */
 }
 
-/* Adjust button size for smaller screens */
-@media (max-width: 768px) {
+/* Button Container */
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+
+/* Media Queries for Smaller Screens */
+@media (max-width: 1024px) {
   .welcome-div {
-    max-width: 300px;
+    max-width: 350px;
+    padding: 15px;
+  }
+
+  .welcome-title {
+    font-size: 1.5rem; /* Smaller welcome text */
+  }
+
+  .subtitle {
+    font-size: 1rem;
   }
 
   .span-signin {
-    font-size: 18px;
-    padding: 12px 50px;
+    font-size: 1.2rem;
+    padding: 12px 30px;
+    margin-top: 20px; /* Further reduced margin */
+  }
+
+  .form-control {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .input-icon img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .form-control {
+    font-size: 13px;
+  }
+}
+@media (max-width: 1024px) {
+  .mgf {
+    margin: 0;
   }
 }

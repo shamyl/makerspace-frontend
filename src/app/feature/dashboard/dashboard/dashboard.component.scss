@@ -1,91 +1,54 @@
-.card{
-  width: 100%;
-  border: 1px solid #eaeaea;
-  height: 100%;
+.heading-main {
+  position: absolute;
+  top: 18%;
+  left: 6%;
+  font-size: 61px;
+  color: #2b6ca4;
+  font-weight: bold;
 }
-.span-last-head{
-  font-size: 16px;
+
+.heading-sub {
+  position: absolute;
+  top: 30%;
+  left: 157px;
+  font-size: 57px;
+  font-weight: bold;
+  line-height: 1.2;
+  color: #2b6ca4;
+}
+
+.card-title {
+  font-size: 1.75rem;
+  font-weight: bold;
+}
+
+.explore-card {
+  border-radius: 15px;
+  background: #ccdeed;
+  transition: transform 0.3s ease;
+}
+
+.explore-card:hover {
+  transform: scale(1.05);
+}
+
+.text-bold {
+  font-weight: bold;
+  line-height: 1.5;
+}
+
+.span-last-head {
+  font-size: 1rem;
   font-weight: 600;
   color: #ff9900;
 }
-.centered-word {
-  text-align: center;
-}
-.profile-container {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-}
 
-.profile-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: #ddd;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-  color: #333;
-  margin-right: 10px;
-}
-
-.profile-info {
-  display: flex;
-  align-items: center;
-}
-
-.profile-name {
-  font-size: 16px;
-  font-weight: bold;
-  color: #333;
-}
-
-.navbar-custom {
-  padding: 10px 20px;
-}
-
-.navbar-brand img {
-  height: 40px;
-  object-fit: contain;
-}
-
-.navbar-nav .nav-link {
-  font-size: 1.2em;
-  margin-left: 20px;
-  color: #333;
-}
-
-.navbar-nav .nav-link:hover {
-  color: #007bff;
-}
-
-.profile-container {
-  margin-right: 20px;
-}
-
-.profile-link {
-  text-decoration: none;
-  color: #333;
-}
-
-.profile-link:hover {
-  color: #007bff;
-}
-
-.profile-name {
-  font-size: 1.2em;
-  font-weight: bold;
-}
-
-@media (max-width: 768px) {
-  .navbar-nav {
-    justify-content: center;
-  }
-
-  .profile-container {
-    margin-top: 10px;
-  }
+.float-image {
+  position: absolute;
+  right: 20%;
+  top: 27%;
+  width: 461px;
+  animation: _ngcontent-ng-c2820987762_floatUpDown 3s ease-in-out infinite;
 }
 
 @keyframes floatUpDown {
@@ -93,17 +56,82 @@
     transform: translateY(0px);
   }
   50% {
-    transform: translateY(-20px); /* Move up by 20px */
+    transform: translateY(-20px);
   }
   100% {
-    transform: translateY(0px); /* Return to the original position */
+    transform: translateY(0px);
   }
 }
 
-/* Apply animation to the image */
-.float-image {
-  position: absolute;
-  right: 368px;
-  top: 207px;
-  animation: floatUpDown 3s ease-in-out infinite; /* Smooth float effect */
+@media (max-width: 1024px) {
+  .heading-main {
+    font-size: 29px;
+    top: 18%;
+    left: 7%;
+  }
+
+  .heading-sub {
+    font-size: 43px;
+    top: 30%;
+    left: 8%;
+  }
+
+  .float-image {
+    width: 284px;
+    right: 19%;
+    top: 25%;
+
+  }
+
+  .span-last-head {
+    font-size: 0.9rem;
+  }
+}
+@media (max-width: 1440px) {
+  .heading-main {
+    font-size: 35px;
+    top: 18%;
+    left: 7%;
+  }
+
+  .heading-sub {
+    font-size: 43px;
+    top: 30%;
+    left: 8%;
+  }
+
+  .float-image {
+    width: 283px;
+    right: 19%;
+    top: 25%;
+
+  }
+
+  .span-last-head {
+    font-size: 0.9rem;
+  }
+}
+@media (max-width: 768px) {
+  .heading-main {
+    font-size: 25px;
+    top: 18%;
+    left: 7%;
+  }
+
+  .heading-sub {
+    font-size: 36px;
+    top: 30%;
+    left: 8%;
+  }
+
+  .float-image {
+    width: 200px;
+    right: 19%;
+    top: 25%;
+
+  }
+
+  .span-last-head {
+    font-size: 0.9rem;
+  }
 }
