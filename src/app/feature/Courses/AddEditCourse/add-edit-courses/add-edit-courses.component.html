@@ -73,6 +73,17 @@
             </mat-form-field>
         </div>
     </div>
+  <div class="col-lg-6 col-sm-12">
+      <span class="span-inp mb-2">content Upload</span>
+    <span style="display: flex;
+    border: 1px solid;
+    border-radius: 5px;
+    padding: 22px 30px;
+    align-items: center;
+    justify-content: center;">
+      <input type="file" multiple (change)="onFileSelected($event)" />
+      </span>
+  </div>
     <div class="col-lg-12 col-sm-12">
         <div class="d-flex justify-content-end">
             <button mat-raised-button color="primary" (click)="save()" style="margin: 0 11px">Submit</button>

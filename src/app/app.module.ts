@@ -47,6 +47,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import {NgxMaterialTimepickerModule} from "ngx-material-timepicker";
+import {FileUploadComponent} from "./feature/file-upload/file-upload.component";
 
 
 @NgModule({
@@ -65,45 +66,46 @@ import {NgxMaterialTimepickerModule} from "ngx-material-timepicker";
     ProjectsComponent
 
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    InputTextModule,
-    TableModule,
-    MatDialogModule,
-    MatButtonModule,
-    BrowserAnimationsModule,
-    CalendarModule,
-    SelectButtonModule,
-    FormsModule,
-    ToastrModule.forRoot({
-      timeOut: 5000,
-      positionClass: 'toast-bottom-right',
-      preventDuplicates: true,
-      progressBar: true,
-      closeButton: true
-    }),
-    MatInputModule,
-    CardModule,
-    HttpClientModule,
-    CheckboxModule,
-    MatSelectModule,
-    MatOptionModule,
-    MatFormFieldModule,
-    SidebarModule,
-    RippleModule,
-    StyleClassModule,
-    FullCalendarModule,
-    MatDatepickerModule,
-    NgxMatDatetimePickerModule,
-    NgxMatTimepickerModule,
-    NgxMatMomentModule,
-    MatTabsModule,
-    MatIconModule,
-    MatTabGroup,
-    NgxMaterialTimepickerModule,
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        InputTextModule,
+        TableModule,
+        MatDialogModule,
+        MatButtonModule,
+        BrowserAnimationsModule,
+        CalendarModule,
+        SelectButtonModule,
+        FormsModule,
+        ToastrModule.forRoot({
+            timeOut: 5000,
+            positionClass: 'toast-bottom-right',
+            preventDuplicates: true,
+            progressBar: true,
+            closeButton: true
+        }),
+        MatInputModule,
+        CardModule,
+        HttpClientModule,
+        CheckboxModule,
+        MatSelectModule,
+        MatOptionModule,
+        MatFormFieldModule,
+        SidebarModule,
+        RippleModule,
+        StyleClassModule,
+        FullCalendarModule,
+        MatDatepickerModule,
+        NgxMatDatetimePickerModule,
+        NgxMatTimepickerModule,
+        NgxMatMomentModule,
+        MatTabsModule,
+        MatIconModule,
+        MatTabGroup,
+        NgxMaterialTimepickerModule,
+        FileUploadComponent,
 
-  ],
+    ],
   providers: [CoursesService, {  provide: HTTP_INTERCEPTORS,  useClass: IntercepterService,  multi: true},
     DatePipe],
   bootstrap: [AppComponent]

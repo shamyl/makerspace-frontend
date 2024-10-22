@@ -25,6 +25,8 @@ import {MatOption} from "@angular/material/autocomplete";
 import {MatSelect} from "@angular/material/select";
 import {MatInput} from "@angular/material/input";
 import {MatButton} from "@angular/material/button";
+import {UserLisitngComponent} from "./user-lisitng/user-lisitng.component";
+import {LabsListingsComponent} from "../labs/labs-listings/labs-listings.component";
 
 
 const routes: Routes = [
@@ -44,6 +46,9 @@ const routes: Routes = [
       }, {
         path: 'signup',
         component: SignupComponent,
+      },{
+        path: 'users',
+        component: UserLisitngComponent,
       },
       {
         path: 'dashboard',
@@ -70,6 +75,9 @@ const routes: Routes = [
       {
         path: 'booklabs',
         component: BooklabsComponent,
+      },{
+        path: 'Labs',
+        component: LabsListingsComponent,
       },
       {
         path: 'Membership',

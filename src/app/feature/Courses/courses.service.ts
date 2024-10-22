@@ -7,12 +7,16 @@ import { environment } from 'src/environments/environment';
 })
 export class CoursesService {
    BASEURL = environment.baseUrl;
+   apiUrl = 'http://localhost:7100';
     constructor(private http: HttpClient) {
 
 }
 
   getCourses(): Observable<any> {
     return this.http.get<any>(`${this.BASEURL}course/all`);
+  }
+  getUser(): Observable<any> {
+    return this.http.get<any>(`${this.BASEURL}user/all`);
   }
   getTimePeriod(): Observable<any> {
     return this.http.get<any>(`${this.BASEURL}course/getTimePeriodList`);
@@ -26,11 +30,14 @@ export class CoursesService {
   getCoursebyId(id: number): Observable<any> {
     return this.http.get<any>(`${this.BASEURL}course/${id}`);
   }
-    getAllCourses(): Observable<any> {
+    getAllLabs(): Observable<any> {
     return this.http.get<any>(`${this.BASEURL}lab/all?isActive=true`);
   }
   addCourse(params: any): Observable<any[]> {
     return this.http.post<any[]>(`${this.BASEURL}course/save`, params);
+  }
+  addLabs(params: any): Observable<any[]> {
+    return this.http.post<any[]>(`${this.BASEURL}lab/save`, params);
   }
   addUser(params: any): Observable<any[]> {
     return this.http.post<any[]>(`${this.BASEURL}user/save`, params);
@@ -38,7 +45,21 @@ export class CoursesService {
   update(params: any): Observable<any[]> {
     return this.http.put<any[]>(`${this.BASEURL}course/update`, params);
   }
+  updateLabs(params: any): Observable<any[]> {
+    return this.http.put<any[]>(`${this.BASEURL}lab/update`, params);
+  }
   deleteUser(userId: number): Observable<any> {
     return this.http.delete(`${this.BASEURL}course/delete?id=${userId}`);
+  }
+  deleteLabs(userId: number): Observable<any> {
+    return this.http.delete(`${this.BASEURL}lab/delete?id=${userId}`);
+  }
+
+  uploadCourseFiles(courseId: number, formData: FormData): Observable<any> {
+    return this.http.post(`${this.apiUrl}/makerspace/documents/save?moduleId=${courseId}&moduleType=Course`, formData);
+  }
+
+  getDocumentsById(moduleId: any): Observable<any> {
+      return this.http.get<any>(`${this.BASEURL}documents/by-module-id?moduleId=${moduleId}&moduleType=Course`);
   }
 }

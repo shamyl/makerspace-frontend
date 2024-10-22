@@ -1,14 +1,37 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import { CoursesService } from '../../courses.service';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { ThemePalette } from "@angular/material/core";
+import {Component, Inject} from '@angular/core';
+import {MatOption, ThemePalette} from "@angular/material/core";
+import {MAT_DIALOG_DATA, MatDialogRef, MatDialogTitle} from "@angular/material/dialog";
+import {CoursesService} from "../../Courses/courses.service";
+import {MatButton} from "@angular/material/button";
+import {MatDatepickerToggle} from "@angular/material/datepicker";
+import {MatFormField, MatSuffix} from "@angular/material/form-field";
+import {MatInput} from "@angular/material/input";
+import {MatSelect} from "@angular/material/select";
+import {NgForOf} from "@angular/common";
+import {NgxMatDatetimePickerModule} from "@angular-material-components/datetime-picker";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @Component({
-  selector: 'app-add-edit-courses',
-  templateUrl: './add-edit-courses.component.html',
-  styleUrls: ['./add-edit-courses.component.scss']
+  selector: 'app-add-edit-labs',
+  standalone: true,
+  imports: [
+    MatButton,
+    MatDatepickerToggle,
+    MatDialogTitle,
+    MatFormField,
+    MatInput,
+    MatOption,
+    MatSelect,
+    MatSuffix,
+    NgForOf,
+    NgxMatDatetimePickerModule,
+    ReactiveFormsModule,
+    FormsModule
+  ],
+  templateUrl: './add-edit-labs.component.html',
+  styleUrl: './add-edit-labs.component.scss'
 })
-export class AddEditCoursesComponent implements OnInit {
+export class AddEditLabsComponent {
   course: any = {};
   timePeriodList: any;
   status: any;
@@ -28,9 +51,9 @@ export class AddEditCoursesComponent implements OnInit {
   public stepMinute = 1;
   public stepSecond = 1;
   maxEndTime: any;
-   courseList: any;
+  courseList: any;
   constructor(
-    public dialogRef: MatDialogRef<AddEditCoursesComponent>,
+    public dialogRef: MatDialogRef<AddEditLabsComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private courseService: CoursesService
   ) {
@@ -65,26 +88,16 @@ export class AddEditCoursesComponent implements OnInit {
     this.course.endDateTime = this.formatDate(this.course.endDateTime);
 
     const saveOperation = this.course.id
-      ? this.courseService.update(this.course)
-      : this.courseService.addCourse(this.course);
+      ? this.courseService.updateLabs(this.course)
+      : this.courseService.addLabs(this.course);
 
     saveOperation.subscribe(res => {
       this.courseList = res;
       if (res) {
-        this.uploadFiles(this.courseList.id); // Upload files with the course ID
+        //this.uploadFiles(this.courseList.id); // Upload files with the course ID
       }
       this.dialogRef.close(res); // Close dialog and return response
     });
-  }
-
-  uploadFiles(courseId: number): void {
-    const formData = new FormData();
-    this.selectedFiles.forEach(file => formData.append('files', file));
-
-    this.courseService.uploadCourseFiles(courseId, formData).subscribe(
-      response => console.log('Files uploaded successfully', response),
-      error => console.error('Error uploading files', error)
-    );
   }
 
   formatDate(date: string | Date): string {
@@ -96,4 +109,5 @@ export class AddEditCoursesComponent implements OnInit {
   resetForm(): void {
     this.course = {};
   }
+
 }
