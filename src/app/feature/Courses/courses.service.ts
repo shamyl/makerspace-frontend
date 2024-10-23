@@ -56,7 +56,7 @@ export class CoursesService {
   }
 
   uploadCourseFiles(courseId: number, formData: FormData): Observable<any> {
-    return this.http.post(`${this.apiUrl}/makerspace/documents/save?moduleId=${courseId}&moduleType=Course`, formData);
+    return this.http.post(`${this.BASEURL}/makerspace/documents/save?moduleId=${courseId}&moduleType=Course`, formData);
   }
 
   getDocumentsById(moduleId: any): Observable<any> {
