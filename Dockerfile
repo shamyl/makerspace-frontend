@@ -1,23 +1,18 @@
-# Stage 1: Build the Angular app
-FROM node:16 AS build
+# Stage 1: Build the Angular application
+FROM node:18 AS build
 
 # Set the working directory inside the container
 WORKDIR /app
 
 # Copy package.json and package-lock.json to install dependencies
 COPY package*.json ./
+RUN npm install --force
 
-
-
-# Copy the entire project (including src) to the container
+# Copy the rest of the application code into the container
 COPY . .
 
-# Build the Angular project
-RUN npm run build --prod
+# Expose port 4200 for Angular to be accessible
+EXPOSE 4200
 
-# Stage 2: Serve the Angular app with Nginx
-FROM nginx:1.17.1-alpine
-
-# Copy the built Angular files to Nginx's HTML directory
-COPY --from=build /app/dist /usr/share/nginx/html
-
+# Run the Angular development server
+CMD ["npx", "ng", "serve", "--host", "0.0.0.0"]
