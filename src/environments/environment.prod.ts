@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  baseUrl: 'https://35.232.175.135/makerspace/'
+  baseUrl: 'http://localhost:4200/makerspace/',
 };

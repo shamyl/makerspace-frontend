@@ -92,7 +92,7 @@
 
 export const environment = {
   production: false,
- baseUrl: 'https://35.232.175.135/makerspace/',
+ baseUrl: 'http://localhost:4200/makerspace/',
  //  baseUrl: 'http://192.168.100.41:7100/makerspace/',
 };
 
