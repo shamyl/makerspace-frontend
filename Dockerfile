@@ -16,4 +16,4 @@ COPY . .
 EXPOSE 4200
 
 # Run the Angular development server
-CMD ["npx", "ng", "serve", "--host", "0.0.0.0"]
+CMD ["npx", "ng", "build", "--host", "0.0.0.0"]
