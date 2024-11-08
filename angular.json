@@ -82,7 +82,10 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "buildTarget": "makerspace:build"
+            "buildTarget": "makerspace:build",
+            "host": "0.0.0.0", 
+            "publicHost": "makerspace.learnosteam.com",
+            "disableHostCheck": true 
           },
           "configurations": {
             "production": {
