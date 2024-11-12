@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
 export class CoursesService {
    BASEURL = environment.baseUrl;
   //  apiUrl = 'http://localhost:7100';
-    apiUrl = 'http://35.232.175.135/makerspace/user/login';
+    apiUrl = 'http://35.232.175.135';
     constructor(private http: HttpClient) {
 
 }
