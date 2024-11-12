@@ -84,7 +84,7 @@
           "options": {
             "buildTarget": "makerspace:build",
             "host": "localhost", 
-            "publicHost": "makerspace.learnosteam.com",
+            "publicHost": "0.0.0.0",
             "disableHostCheck": true 
           },
           "configurations": {
