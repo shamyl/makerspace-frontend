@@ -84,7 +84,7 @@
           "options": {
             "buildTarget": "makerspace:build",
             "host": "localhost", 
-            "publicHost": "0.0.0.0",
+            "publicHost": "http://35.232.175.135",
             "disableHostCheck": true 
           },
           "configurations": {
