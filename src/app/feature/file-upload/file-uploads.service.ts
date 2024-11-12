@@ -6,7 +6,8 @@ import {Observable} from "rxjs";
   providedIn: 'root'
 })
 export class FileUploadsService {
-  private baseUrl = 'http://localhost:7100/makerspace/documents/save?moduleId=1&moduleType=Course';
+  // private baseUrl = 'http://localhost:7100/makerspace/documents/save?moduleId=1&moduleType=Course';
+  private baseUrl = 'http://35.232.175.135/makerspace/documents/save?moduleId=1&moduleType=Course'
   constructor(private http: HttpClient) { }
 
   upload(file: File): Observable<HttpEvent<any>> {
