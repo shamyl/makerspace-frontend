@@ -83,7 +83,7 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
             "buildTarget": "makerspace:build",
-            "host": "0.0.0.0", 
+            "host": "localhost", 
             "publicHost": "makerspace.learnosteam.com",
             "disableHostCheck": true 
           },
